@@ -1375,14 +1375,14 @@ class LeukemiaDetectionUI(QMainWindow):
         self.result_label = QLabel("No active result")
         self.result_label.setObjectName("resultLabel")
         self.result_label.setWordWrap(True)
-        self.result_meta_label = QLabel("Confidence: --")
+        self.result_meta_label = QLabel("Classified leukocytes: --")
         self.result_meta_label.setObjectName("resultMeta")
         self.result_meta_label.setWordWrap(True)
 
         result_metrics = QGridLayout()
         result_metrics.setHorizontalSpacing(12)
         result_metrics.setVerticalSpacing(12)
-        self.result_confidence_tile = MetricTile("Confidence Score")
+        self.result_confidence_tile = MetricTile("Screening Score (P_abn)")
         self.result_images_tile = MetricTile("Images Used")
         self.result_timestamp_tile = MetricTile("Session Time")
         self.result_action_tile = MetricTile("Recommendation")
@@ -1589,7 +1589,7 @@ class LeukemiaDetectionUI(QMainWindow):
         self.saved_metrics_bottom_row = QHBoxLayout(self.saved_metrics_bottom_widget)
         self.saved_metrics_bottom_row.setContentsMargins(0, 0, 0, 0)
         self.saved_metrics_bottom_row.setSpacing(12)
-        self.saved_result_confidence_tile = MetricTile("Confidence Score", compact=True)
+        self.saved_result_confidence_tile = MetricTile("Screening Score (P_abn)", compact=True)
         self.saved_result_images_tile = MetricTile("Images Used", compact=True)
         self.saved_result_saved_at_tile = MetricTile("Saved At", compact=True)
         self.saved_result_folder_tile = MetricTile("Package Folder", compact=True)
@@ -2083,6 +2083,13 @@ class LeukemiaDetectionUI(QMainWindow):
 
         self.progress_bar.setTextVisible(not ultra_compact_progress)
 
+    @staticmethod
+    def _score_summary(record):
+        score_text = record.get("score_text")
+        if not score_text:
+            return f"{record['confidence']}% confidence"
+        return "statement withheld" if score_text == "Withheld" else f"P_abn {score_text}"
+
     def _format_datetime_text(self, value, fallback="--"):
         if not value:
             return fallback
@@ -2120,6 +2127,7 @@ class LeukemiaDetectionUI(QMainWindow):
                     "session_started_at": payload.get("session_started_at", ""),
                     "label": result.get("label", "Saved Result"),
                     "confidence": result.get("confidence", 0),
+                    "score_text": result.get("score_text"),
                     "risk_level": result.get("risk_level", "low"),
                     "images_used": payload.get("images_used", result.get("images_used", 0)),
                     "summary": result.get("summary", "No summary available."),
@@ -2416,7 +2424,7 @@ class LeukemiaDetectionUI(QMainWindow):
             else "Run analysis and use Save Result to create report packages in the Interface/saved_results folder."
         )
         self.saved_result_meta_label.setText("Saved at: --")
-        self.saved_result_confidence_tile.set_data("--", "Model confidence")
+        self.saved_result_confidence_tile.set_data("--", "Reported only with a statement")
         self.saved_result_images_tile.set_data("--", "Captured images in the saved package")
         self.saved_result_saved_at_tile.set_data("--", "Timestamp of the saved package")
         self.saved_result_folder_tile.set_data("--", "Saved result folder")
@@ -2464,7 +2472,8 @@ class LeukemiaDetectionUI(QMainWindow):
         self.saved_result_meta_label.setText(
             f"Saved at {self._format_datetime_text(selected_record['saved_at'])}  |  Session start {self._format_datetime_text(selected_record['session_started_at'])}  |  Detector: {detector_text}"
         )
-        self.saved_result_confidence_tile.set_data(f"{selected_record['confidence']}%", "Model confidence for the saved run")
+        saved_score = selected_record.get("score_text") or f"{selected_record['confidence']}%"
+        self.saved_result_confidence_tile.set_data(saved_score, "Screening score of the saved run")
         self.saved_result_images_tile.set_data(str(selected_record["images_used"]), "Analyzed images stored in the package")
         self.saved_result_saved_at_tile.set_data(self._format_datetime_text(selected_record["saved_at"]), "Package save timestamp")
         self.saved_result_folder_tile.set_data(selected_record["directory"].name, "Saved result package folder")
@@ -2501,7 +2510,7 @@ class LeukemiaDetectionUI(QMainWindow):
         for record in self.saved_result_records:
             saved_label = self._format_datetime_text(record["saved_at"], fallback=record["directory"].name)
             button = QPushButton(
-                f"{saved_label}\n{record['label']}  |  {record['confidence']}% confidence  |  {record['images_used']} images"
+                f"{saved_label}\n{record['label']}  |  {self._score_summary(record)}  |  {record['images_used']} images"
             )
             button.setObjectName("savedResultEntry")
             button.setCursor(Qt.PointingHandCursor)
@@ -3046,7 +3055,10 @@ class LeukemiaDetectionUI(QMainWindow):
             key in result
             for key in ("strong_positive_cells", "moderate_positive_cells", "positive_images")
         )
-        if has_session_evidence:
+        recommendation = result.get("recommendation", recommendation)
+        if "evidence_detail" in result:
+            action_detail = result["evidence_detail"]
+        elif has_session_evidence:
             action_detail = (
                 f"Strong ROI: {result.get('strong_positive_cells', 0)}  |  "
                 f"Moderate ROI: {result.get('moderate_positive_cells', 0)}  |  "
@@ -3060,7 +3072,12 @@ class LeukemiaDetectionUI(QMainWindow):
 
         set_badge(self.result_risk_badge, result["label"], tone)
         self.result_summary_label.setText(result["summary"])
-        self.result_label.setText(f"{result['label']}: {result['confidence']}%")
+        # Pipeline results carry score_text; a statement or abstention is shown
+        # without a percentage, the screening score stays in its own tile.
+        score_text = result.get("score_text")
+        self.result_label.setText(
+            result["label"] if score_text else f"{result['label']}: {result['confidence']}%"
+        )
         timing_details = result.get("timing_details", {})
         timing_suffix = ""
         if timing_details:
@@ -3077,14 +3094,19 @@ class LeukemiaDetectionUI(QMainWindow):
         detection_backend = result.get("detection_backend")
         if detection_backend:
             detector_suffix = f"  |  Detector: {detection_backend}"
-        self.result_meta_label.setText(
-            f"Confidence score: {result['confidence']}%  |  Images used: {result['images_used']}  |  Detected ROI: {result.get('total_detected_cells', 0)}{detector_suffix}{timing_suffix}"
-        )
-
-        self.result_confidence_tile.set_data(f"{result['confidence']}%", "Model confidence for this session")
+        if score_text:
+            self.result_meta_label.setText(
+                f"Classified leukocytes: {result.get('classified_cells', 0)}  |  Images used: {result['images_used']}  |  Detected WBC: {result.get('total_detected_cells', 0)}{detector_suffix}{timing_suffix}"
+            )
+            self.result_confidence_tile.set_data(score_text, result.get("score_note", ""))
+        else:
+            self.result_meta_label.setText(
+                f"Confidence score: {result['confidence']}%  |  Images used: {result['images_used']}  |  Detected ROI: {result.get('total_detected_cells', 0)}{detector_suffix}{timing_suffix}"
+            )
+            self.result_confidence_tile.set_data(f"{result['confidence']}%", "Model confidence for this session")
         self.result_images_tile.set_data(
             str(result["images_used"]),
-            f"{result.get('total_detected_cells', 0)} ROI detected across buffered full-frame image(s)",
+            f"{result.get('total_detected_cells', 0)} WBC detected across buffered full-frame image(s)",
         )
         self.result_timestamp_tile.set_data(self.session_started_at.strftime("%H:%M"), "Session start time")
         self.result_action_tile.set_data(
@@ -3153,10 +3175,10 @@ class LeukemiaDetectionUI(QMainWindow):
         self.gallery_hint_label.setText("Captured and imported images appear here before analysis. Click any image to enlarge it.")
         self.result_footer_label.setText("No report saved yet.")
         self.result_label.setText("No active result")
-        self.result_meta_label.setText("Confidence: --")
+        self.result_meta_label.setText("Classified leukocytes: --")
         self.result_summary_label.setText("Run analysis after capturing or importing microscopy images.")
         self._apply_result_label_style(COLORS["text"])
-        self.result_confidence_tile.set_data("--", "Model confidence for this session")
+        self.result_confidence_tile.set_data("--", "Reported only with a statement")
         self.result_images_tile.set_data("--", "Buffered full-frame images processed")
         self.result_timestamp_tile.set_data("--", "Session start time")
         self.result_action_tile.set_data("--", "Suggested next action")

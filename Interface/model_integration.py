@@ -230,9 +230,39 @@ class WorkspaceLeukemiaModelRunner:
             round(quantities.get(evidence_quantity, 0.0) * n_classified) if evidence_quantity else 0
         )
 
-        return {
+        # An abstention issues no statement, so no score is shown with it; the
+        # evidence line gives the quantity that stopped the grid instead.
+        uncertainty = result.get("uncertainty", {})
+        abstained = status in {"no_decision", "insufficient_evidence", "out_of_domain"} or (
+            label_code == "indeterminate"
+        )
+        recommendation = None
+        if status == "out_of_domain":
+            ood_score, ood_threshold = uncertainty.get("ood_score"), uncertainty.get("ood_threshold")
+            evidence_detail = (
+                f"OOD score {ood_score:.0f} > threshold {ood_threshold:.0f}"
+                if ood_score is not None and ood_threshold is not None
+                else "OOD gate: outside the validated domain"
+            )
+            recommendation = "Refer to expert review"
+        elif status == "insufficient_evidence":
+            evidence_detail = f"{n_classified} classified leukocytes, below tier S"
+        elif status == "no_decision":
+            evidence_detail = "No WBC detected"
+        else:
+            evidence_detail = f"{n_classified} classified leukocytes  |  Tier: {tier}"
+        if abstained or probability is None:
+            score_text, score_note = "Withheld", "No statement issued for this session"
+        else:
+            score_text, score_note = f"{float(probability):.3f}", "Gated-attention MIL screening score"
+
+        ui_result = {
             "label": display_label,
             "confidence": confidence,
+            "score_text": score_text,
+            "score_note": score_note,
+            "classified_cells": n_classified,
+            "evidence_detail": evidence_detail,
             "risk_level": risk,
             "images_used": images_used,
             "summary": summary,
@@ -243,6 +273,9 @@ class WorkspaceLeukemiaModelRunner:
             "detection_backend": f"YOLO + ResNet/MIL ({result.get('inference_backend', 'pytorch')})",
             "aster_result": result,
         }
+        if recommendation:
+            ui_result["recommendation"] = recommendation
+        return ui_result
 
 
 def build_workspace_model_runner(*_args, **_kwargs) -> WorkspaceLeukemiaModelRunner:
