@@ -1,0 +1,13 @@
+{
+  "pb_myeloblast": 0.8976498673265354,
+  "pb_promyelocyte": 0.3459014044662783,
+  "pb_myelocyte": 0.2679258283394214,
+  "pb_metamyelocyte": 0.08275094523207445,
+  "pb_neutrophil_band": 0.02829909094590158,
+  "pb_neutrophil_segmented": 0.9155540645978291,
+  "pb_eosinophil": 0.5474014748105621,
+  "pb_basophil": 0.3030342309809923,
+  "pb_monocyte": 0.5078607138675896,
+  "pb_lymph_typ": 0.8010061682842954,
+  "pb_lymph_atyp_react": 0.11305235315967477
+}

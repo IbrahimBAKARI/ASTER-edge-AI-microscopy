@@ -1,0 +1,19 @@
+{
+  "duration_from_samples_s": 298.90848541259766,
+  "power_rail": "VDD_IN",
+  "power_mean_w": 5.676305369127517,
+  "power_std_w": 0.02635149683067011,
+  "power_median_w": 5.665,
+  "power_max_w": 6.021,
+  "total_energy_j": 1696.687022086978,
+  "completed_units": 30461,
+  "unit_name": "frame",
+  "gross_energy_per_unit_j": 0.05570030603351755,
+  "gpu_temperature_max_c": 51.718,
+  "cpu_temperature_max_c": 51.843,
+  "ram_max_mb": 2766,
+  "sample_count": 298,
+  "mode": "acquisition",
+  "wall_duration_s": 300.0050536180006,
+  "created_at": "2026-09-12T13:26:08.185407+01:00"
+}

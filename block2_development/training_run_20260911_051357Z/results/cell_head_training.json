@@ -1,0 +1,8 @@
+{
+  "best_epoch": 14,
+  "best_macro_f1": 0.7527235290840253,
+  "epochs_run": 22,
+  "max_epochs": 60,
+  "patience": 8,
+  "monitor": "macro F1 on definite-label cell_val"
+}

@@ -1,0 +1,80 @@
+{
+  "score": "calibrated P_abn, MIL head only (tier S screening)",
+  "comparisons": {
+    "AML vs donors": {
+      "auroc_all": 0.9732459732459733,
+      "n_all": 136,
+      "auroc_excluding_ood": 0.9673400673400673,
+      "n_excluding_ood": 129,
+      "ci95_bootstrap_2000": [
+        0.9374761124761125,
+        0.9980889980889981
+      ]
+    },
+    "acute vs donors": {
+      "auroc_all": 0.9780412823891084,
+      "n_all": 145,
+      "auroc_excluding_ood": 0.9732459732459733,
+      "n_excluding_ood": 136
+    },
+    "acute vs donors+reactive": {
+      "auroc_all": 0.9668516805427073,
+      "n_all": 187,
+      "auroc_excluding_ood": 0.964551508029769,
+      "n_excluding_ood": 175,
+      "ci95_bootstrap_2000": [
+        0.9349329324699353,
+        0.9907493061979649
+      ]
+    },
+    "any neoplasm vs donors+reactive": {
+      "auroc_all": 0.793029533185138,
+      "n_all": 409,
+      "auroc_excluding_ood": 0.7805475040257648,
+      "n_excluding_ood": 363
+    }
+  },
+  "operating_point": {
+    "tau_calibrated": 0.9333718402986559,
+    "sensitivity_AML": {
+      "k": 19,
+      "n": 37,
+      "rate": 0.5135135135135135,
+      "ci95_wilson": [
+        0.35894896665618786,
+        0.6655359569698336
+      ]
+    },
+    "specificity_donors": {
+      "k": 99,
+      "n": 99,
+      "rate": 1.0,
+      "ci95_wilson": [
+        0.9626467879321726,
+        1.0
+      ]
+    }
+  },
+  "old_block2_same_patients": {
+    "auroc": 0.89,
+    "sensitivity": {
+      "k": 25,
+      "n": 37,
+      "rate": 0.6756756756756757,
+      "ci95_wilson": [
+        0.514636672419722,
+        0.8036673347185581
+      ]
+    },
+    "specificity": {
+      "k": 99,
+      "n": 99,
+      "rate": 1.0,
+      "ci95_wilson": [
+        0.9626467879321726,
+        1.0
+      ]
+    },
+    "source": "deployed block 2 (MAX head, 5 folds), 37 AML / 99 donors"
+  }
+}

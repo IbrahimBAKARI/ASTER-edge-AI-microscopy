@@ -1,0 +1,410 @@
+patient_id,diagnosis_fine,frozen,amended,amended_reasons
+ALK_183,ALL,acute_blastic__myeloid_oriented,acute_blastic__myeloid_oriented,"blasts 56.4% of 498 classified leukocytes, at or above the 20% criterion [WHO] ; abn_promy_frac: the cell classifier cannot separate this population (TPR - FPR too small); no proportion claim is possible ; blast lineage posterior 0.01 (myeloid)"
+ALK_184,AML,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.004 recorded, not used outside R1/R4"
+ALK_185,AML,acute_blastic__myeloid_oriented,acute_blastic__myeloid_oriented,"blasts 83.8% of 499 classified leukocytes, at or above the 20% criterion [WHO] ; abn_promy_frac: the cell classifier cannot separate this population (TPR - FPR too small); no proportion claim is possible ; blast lineage posterior 0.01 (myeloid)"
+ALK_186,ALL,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.086 recorded, not used outside R1/R4"
+ALK_187,AL,acute_blastic__myeloid_oriented,indeterminate,blast fraction 39.2% cannot be placed with respect to the 20% criterion at gamma=0.9 on 498 cells
+ALK_188,AML,acute_blastic__myeloid_oriented,acute_blastic__myeloid_oriented,"blasts 52.4% of 500 classified leukocytes, at or above the 20% criterion [WHO] ; abn_promy_frac: the cell classifier cannot separate this population (TPR - FPR too small); no proportion claim is possible ; blast lineage posterior 0.01 (myeloid)"
+ALK_189,AML,acute_blastic__myeloid_oriented,indeterminate,blast fraction 24.8% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+ALK_190,AML,acute_blastic__myeloid_oriented,acute_blastic__myeloid_oriented,"blasts 42.4% of 500 classified leukocytes, at or above the 20% criterion [WHO] ; abn_promy_frac: the cell classifier cannot separate this population (TPR - FPR too small); no proportion claim is possible ; blast lineage posterior 0.01 (myeloid)"
+ALK_191,AML,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.276 recorded, not used outside R1/R4"
+ALK_192,AML,indeterminate,indeterminate,blast fraction 18.2% cannot be placed with respect to the 20% criterion at gamma=0.9 on 499 cells
+ALK_193,AML,acute_blastic__myeloid_oriented,indeterminate,blast fraction 31.3% cannot be placed with respect to the 20% criterion at gamma=0.9 on 499 cells
+ALK_194,AML,out_of_domain,out_of_domain,OOD score 578.15 above the in-domain threshold 576.11
+ALK_195,AML,out_of_domain,out_of_domain,OOD score 711.96 above the in-domain threshold 576.11
+ALK_196,ALL,out_of_domain,out_of_domain,OOD score 647.73 above the in-domain threshold 576.11
+ALK_197,AML,out_of_domain,out_of_domain,OOD score 611.70 above the in-domain threshold 576.11
+ALK_198,AML,acute_blastic__myeloid_oriented,indeterminate,blast fraction 28.8% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+ALK_199,AML,acute_blastic__myeloid_oriented,indeterminate,blast fraction 25.5% cannot be placed with respect to the 20% criterion at gamma=0.9 on 432 cells
+ALK_200,AML,non_leukemic,non_leukemic,"189 classified leukocytes: routine-differential tier, screening statement only [STD]; P_abn=0.000"
+ALK_201,AML,acute_blastic__myeloid_oriented,indeterminate,blast fraction 33.3% cannot be placed with respect to the 20% criterion at gamma=0.9 on 498 cells
+ALK_202,AML,acute_blastic__myeloid_oriented,indeterminate,blast fraction 30.4% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+ALK_203,AML,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.914 recorded, not used outside R1/R4"
+ALK_204,AML,acute_blastic__myeloid_oriented,indeterminate,blast fraction 27.5% cannot be placed with respect to the 20% criterion at gamma=0.9 on 465 cells
+ALK_205,AML,acute_blastic__myeloid_oriented,indeterminate,blast fraction 26.2% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+ALK_206,AML,indeterminate,indeterminate,blast fraction 21.6% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+ALK_207,AML,out_of_domain,out_of_domain,OOD score 609.31 above the in-domain threshold 576.11
+ALK_208,AML,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.213 recorded, not used outside R1/R4"
+ALK_209,AML,acute_blastic__myeloid_oriented,indeterminate,blast fraction 30.5% cannot be placed with respect to the 20% criterion at gamma=0.9 on 498 cells
+ALK_210,AML,acute_blastic__myeloid_oriented,acute_blastic__myeloid_oriented,"blasts 66.9% of 474 classified leukocytes, at or above the 20% criterion [WHO] ; abn_promy_frac: the cell classifier cannot separate this population (TPR - FPR too small); no proportion claim is possible ; blast lineage posterior 0.00 (myeloid)"
+ALK_211,AML,out_of_domain,out_of_domain,OOD score 582.05 above the in-domain threshold 576.11
+ALK_212,AML,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.031 recorded, not used outside R1/R4"
+ALK_213,AML,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.004 recorded, not used outside R1/R4"
+ALK_214,AML,out_of_domain,out_of_domain,OOD score 638.26 above the in-domain threshold 576.11
+ALK_215,AML,out_of_domain,out_of_domain,OOD score 588.67 above the in-domain threshold 576.11
+ALK_216,AL,acute_blastic__myeloid_oriented,acute_blastic__myeloid_oriented,"blasts 52.0% of 500 classified leukocytes, at or above the 20% criterion [WHO] ; abn_promy_frac: the cell classifier cannot separate this population (TPR - FPR too small); no proportion claim is possible ; blast lineage posterior 0.02 (myeloid)"
+ALK_217,AML,acute_blastic__myeloid_oriented,acute_blastic__myeloid_oriented,"blasts 64.8% of 500 classified leukocytes, at or above the 20% criterion [WHO] ; abn_promy_frac: the cell classifier cannot separate this population (TPR - FPR too small); no proportion claim is possible ; blast lineage posterior 0.07 (myeloid)"
+ALK_218,AML,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.978 recorded, not used outside R1/R4"
+ALK_219,ALL,acute_blastic__myeloid_oriented,acute_blastic__myeloid_oriented,"blasts 73.5% of 499 classified leukocytes, at or above the 20% criterion [WHO] ; abn_promy_frac: the cell classifier cannot separate this population (TPR - FPR too small); no proportion claim is possible ; blast lineage posterior 0.00 (myeloid)"
+ALK_220,AML,indeterminate,indeterminate,blast fraction 23.6% cannot be placed with respect to the 20% criterion at gamma=0.9 on 368 cells
+ALK_221,AML,acute_blastic__myeloid_oriented,indeterminate,blast fraction 37.2% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+ALK_222,AML,acute_blastic__myeloid_oriented,acute_blastic__myeloid_oriented,"blasts 85.4% of 499 classified leukocytes, at or above the 20% criterion [WHO] ; abn_promy_frac: the cell classifier cannot separate this population (TPR - FPR too small); no proportion claim is possible ; blast lineage posterior 0.03 (myeloid)"
+ALK_223,AML,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+ALK_224,ALL,indeterminate,indeterminate,blast fraction 22.4% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+ALK_225,ALL,acute_blastic__myeloid_oriented,indeterminate,blast fraction 38.9% cannot be placed with respect to the 20% criterion at gamma=0.9 on 499 cells
+ALK_226,ALL,out_of_domain,out_of_domain,OOD score 613.03 above the in-domain threshold 576.11
+ALK_227,AML,indeterminate,indeterminate,blast fraction 22.8% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+ALK_228,AML,acute_blastic__myeloid_oriented,acute_blastic__myeloid_oriented,"blasts 64.4% of 492 classified leukocytes, at or above the 20% criterion [WHO] ; abn_promy_frac: the cell classifier cannot separate this population (TPR - FPR too small); no proportion claim is possible ; blast lineage posterior 0.00 (myeloid)"
+LYM_224,B-cell neoplasm,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+LYM_225,B-cell neoplasm,acute_blastic__myeloid_oriented,acute_blastic__myeloid_oriented,"blasts 46.0% of 498 classified leukocytes, at or above the 20% criterion [WHO] ; abn_promy_frac: the cell classifier cannot separate this population (TPR - FPR too small); no proportion claim is possible ; blast lineage posterior 0.01 (myeloid)"
+LYM_226,B-cell neoplasm,acute_blastic__myeloid_oriented,indeterminate,blast fraction 38.8% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+LYM_227,B-cell neoplasm,acute_blastic__myeloid_oriented,acute_blastic__myeloid_oriented,"blasts 47.0% of 500 classified leukocytes, at or above the 20% criterion [WHO] ; abn_promy_frac: the cell classifier cannot separate this population (TPR - FPR too small); no proportion claim is possible ; blast lineage posterior 0.00 (myeloid)"
+LYM_228,B-cell neoplasm,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+LYM_229,B-cell neoplasm,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+LYM_230,B-cell neoplasm,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.007 recorded, not used outside R1/R4"
+LYM_231,B-cell neoplasm,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.003 recorded, not used outside R1/R4"
+LYM_232,B-cell neoplasm,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+LYM_233,B-cell neoplasm,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+LYM_234,B-cell neoplasm,acute_blastic__myeloid_oriented,indeterminate,blast fraction 30.6% cannot be placed with respect to the 20% criterion at gamma=0.9 on 496 cells
+LYM_235,B-cell neoplasm,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+LYM_236,B-cell neoplasm,out_of_domain,out_of_domain,OOD score 586.75 above the in-domain threshold 576.11
+LYM_237,B-cell neoplasm,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.002 recorded, not used outside R1/R4"
+LYM_238,B-cell neoplasm,acute_blastic__myeloid_oriented,acute_blastic__myeloid_oriented,"blasts 42.2% of 500 classified leukocytes, at or above the 20% criterion [WHO] ; abn_promy_frac: the cell classifier cannot separate this population (TPR - FPR too small); no proportion claim is possible ; blast lineage posterior 0.01 (myeloid)"
+LYM_239,B-cell neoplasm,acute_blastic__myeloid_oriented,indeterminate,blast fraction 30.4% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+LYM_240,HCL,acute_blastic__myeloid_oriented,indeterminate,blast fraction 31.4% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+LYM_241,B-cell neoplasm,acute_blastic__myeloid_oriented,indeterminate,blast fraction 39.8% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+LYM_242,B-cell neoplasm,indeterminate,indeterminate,blast fraction 22.8% cannot be placed with respect to the 20% criterion at gamma=0.9 on 499 cells
+LYM_243,B-cell neoplasm,out_of_domain,out_of_domain,OOD score 635.75 above the in-domain threshold 576.11
+LYM_244,B-cell neoplasm,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+LYM_245,B-cell neoplasm,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.294 recorded, not used outside R1/R4"
+LYM_246,B-cell neoplasm,acute_blastic__myeloid_oriented,acute_blastic__myeloid_oriented,"blasts 44.7% of 499 classified leukocytes, at or above the 20% criterion [WHO] ; abn_promy_frac: the cell classifier cannot separate this population (TPR - FPR too small); no proportion claim is possible ; blast lineage posterior 0.01 (myeloid)"
+LYM_247,B-cell neoplasm,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+LYM_248,B-cell neoplasm,out_of_domain,out_of_domain,OOD score 1199.76 above the in-domain threshold 576.11
+LYM_249,HCL,out_of_domain,out_of_domain,OOD score 633.68 above the in-domain threshold 576.11
+LYM_250,B-cell neoplasm,acute_blastic__myeloid_oriented,acute_blastic__myeloid_oriented,"blasts 45.3% of 499 classified leukocytes, at or above the 20% criterion [WHO] ; abn_promy_frac: the cell classifier cannot separate this population (TPR - FPR too small); no proportion claim is possible ; blast lineage posterior 0.01 (myeloid)"
+LYM_251,B-cell neoplasm,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+LYM_252,T-cell neoplasm,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+LYM_253,B-cell neoplasm,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.993 recorded, not used outside R1/R4"
+LYM_254,B-cell neoplasm,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+LYM_255,B-cell neoplasm,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.016 recorded, not used outside R1/R4"
+LYM_256,B-cell neoplasm,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+LYM_257,B-cell neoplasm,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+LYM_258,B-cell neoplasm,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.002 recorded, not used outside R1/R4"
+LYM_259,B-cell neoplasm,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+LYM_260,B-cell neoplasm,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+LYM_261,B-cell neoplasm,acute_blastic__myeloid_oriented,indeterminate,blast fraction 35.6% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+LYM_262,B-cell neoplasm,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+LYM_263,B-cell neoplasm,acute_blastic__myeloid_oriented,indeterminate,blast fraction 36.7% cannot be placed with respect to the 20% criterion at gamma=0.9 on 499 cells
+LYM_264,B-cell neoplasm,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.022 recorded, not used outside R1/R4"
+LYM_265,B-cell neoplasm,indeterminate,indeterminate,only 482/500 localized objects were classified as leukocytes; the localizer output is not interpretable
+LYM_266,B-cell neoplasm,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+LYM_267,B-cell neoplasm,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+LYM_268,B-cell neoplasm,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+LYM_269,B-cell neoplasm,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+LYM_270,B-cell neoplasm,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+LYM_271,B-cell neoplasm,acute_blastic__myeloid_oriented,indeterminate,blast fraction 32.1% cannot be placed with respect to the 20% criterion at gamma=0.9 on 499 cells
+LYM_272,B-cell neoplasm,acute_blastic__myeloid_oriented,indeterminate,blast fraction 34.8% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+LYM_273,B-cell neoplasm,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+LYM_274,B-cell neoplasm,indeterminate,indeterminate,blast fraction 18.4% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+LYM_275,B-cell neoplasm,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+LYM_276,HCL,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+LYM_277,B-cell neoplasm,indeterminate,indeterminate,blast fraction 22.0% cannot be placed with respect to the 20% criterion at gamma=0.9 on 495 cells
+LYM_278,B-cell neoplasm,acute_blastic__myeloid_oriented,acute_blastic__myeloid_oriented,"blasts 43.8% of 500 classified leukocytes, at or above the 20% criterion [WHO] ; abn_promy_frac: the cell classifier cannot separate this population (TPR - FPR too small); no proportion claim is possible ; blast lineage posterior 0.01 (myeloid)"
+LYM_279,B-cell neoplasm,acute_blastic__myeloid_oriented,acute_blastic__myeloid_oriented,"blasts 56.6% of 500 classified leukocytes, at or above the 20% criterion [WHO] ; abn_promy_frac: the cell classifier cannot separate this population (TPR - FPR too small); no proportion claim is possible ; blast lineage posterior 0.00 (myeloid)"
+LYM_280,B-cell neoplasm,acute_blastic__myeloid_oriented,indeterminate,blast fraction 36.0% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+MDP_100,CMML,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.013 recorded, not used outside R1/R4"
+MDP_101,CMML,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+MDP_102,MDS / MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+MDP_103,CMML,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MDP_104,CMML,acute_blastic__myeloid_oriented,indeterminate,blast fraction 24.6% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+MDP_105,CMML,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MDP_106,CMML,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.002 recorded, not used outside R1/R4"
+MDP_107,CMML,indeterminate,indeterminate,blast fraction 20.9% cannot be placed with respect to the 20% criterion at gamma=0.9 on 498 cells
+MDP_108,MPN / MDS-RS-T,out_of_domain,out_of_domain,OOD score 618.93 above the in-domain threshold 576.11
+MDP_109,CMML,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.877 recorded, not used outside R1/R4"
+MDP_110,MDS / MPN,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.105 recorded, not used outside R1/R4"
+MDP_111,CMML,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MDP_112,MDS / MPN,indeterminate,indeterminate,blast fraction 18.0% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+MDP_91,CMML,indeterminate,indeterminate,blast fraction 21.6% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+MDP_92,CMML,out_of_domain,out_of_domain,OOD score 675.21 above the in-domain threshold 576.11
+MDP_93,CMML,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+MDP_94,CMML,out_of_domain,out_of_domain,OOD score 592.50 above the in-domain threshold 576.11
+MDP_95,MPN / MDS-RS-T,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MDP_96,MDS / MPN,out_of_domain,out_of_domain,OOD score 754.50 above the in-domain threshold 576.11
+MDP_97,CMML,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MDP_98,MDS / MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MDP_99,MDS / MPN,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.002 recorded, not used outside R1/R4"
+MDS_155,MDS,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.115 recorded, not used outside R1/R4"
+MDS_156,MDS,out_of_domain,out_of_domain,OOD score 685.86 above the in-domain threshold 576.11
+MDS_157,MDS,out_of_domain,out_of_domain,OOD score 631.06 above the in-domain threshold 576.11
+MDS_158,MDS,out_of_domain,out_of_domain,OOD score 630.15 above the in-domain threshold 576.11
+MDS_159,MDS,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+MDS_160,MDS,out_of_domain,out_of_domain,OOD score 584.58 above the in-domain threshold 576.11
+MDS_161,MDS,out_of_domain,out_of_domain,OOD score 726.03 above the in-domain threshold 576.11
+MDS_162,MDS,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+MDS_163,MDS,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MDS_164,MDS,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.011 recorded, not used outside R1/R4"
+MDS_165,MDS,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MDS_166,MDS,acute_blastic__myeloid_oriented,indeterminate,blast fraction 31.4% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+MDS_167,MDS,indeterminate,indeterminate,blast fraction 18.4% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+MDS_168,MDS,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+MDS_169,MDS,indeterminate,indeterminate,blast fraction 19.7% cannot be placed with respect to the 20% criterion at gamma=0.9 on 498 cells
+MDS_170,MDS,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.002 recorded, not used outside R1/R4"
+MDS_171,MDS,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+MDS_172,MDS,indeterminate,indeterminate,only 494/500 localized objects were classified as leukocytes; the localizer output is not interpretable
+MDS_173,MDS,out_of_domain,out_of_domain,OOD score 580.54 above the in-domain threshold 576.11
+MDS_174,MDS,indeterminate,indeterminate,blast fraction 17.2% cannot be placed with respect to the 20% criterion at gamma=0.9 on 499 cells
+MDS_175,MDS,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.005 recorded, not used outside R1/R4"
+MDS_176,MDS,out_of_domain,out_of_domain,OOD score 594.50 above the in-domain threshold 576.11
+MDS_177,MDS,indeterminate,indeterminate,blast fraction 19.8% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+MDS_178,MDS,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.004 recorded, not used outside R1/R4"
+MDS_179,MDS,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MDS_180,MDS,out_of_domain,out_of_domain,OOD score 634.83 above the in-domain threshold 576.11
+MDS_181,MDS,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.945 recorded, not used outside R1/R4"
+MDS_182,MDS,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+MDS_183,MDS,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.054 recorded, not used outside R1/R4"
+MDS_184,MDS,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.005 recorded, not used outside R1/R4"
+MDS_185,MDS,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+MDS_186,MDS,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.008 recorded, not used outside R1/R4"
+MDS_187,MDS,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.111 recorded, not used outside R1/R4"
+MDS_188,MDS,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MDS_189,MDS,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.013 recorded, not used outside R1/R4"
+MDS_190,MDS,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MDS_191,MDS,out_of_domain,out_of_domain,OOD score 578.24 above the in-domain threshold 576.11
+MDS_192,MDS,out_of_domain,out_of_domain,OOD score 691.66 above the in-domain threshold 576.11
+MPN_191,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MPN_192,ET,out_of_domain,out_of_domain,OOD score 693.58 above the in-domain threshold 576.11
+MPN_193,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MPN_194,MPN,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.154 recorded, not used outside R1/R4"
+MPN_195,MPN,out_of_domain,out_of_domain,OOD score 762.41 above the in-domain threshold 576.11
+MPN_196,MPN,indeterminate,indeterminate,only 491/500 localized objects were classified as leukocytes; the localizer output is not interpretable
+MPN_197,CML,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.005 recorded, not used outside R1/R4"
+MPN_198,CML,out_of_domain,out_of_domain,OOD score 578.70 above the in-domain threshold 576.11
+MPN_199,MPN,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.240 recorded, not used outside R1/R4"
+MPN_200,MPN,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MPN_201,ET,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MPN_202,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MPN_203,CML,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.084 recorded, not used outside R1/R4"
+MPN_204,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MPN_205,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+MPN_206,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MPN_207,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MPN_208,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MPN_209,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MPN_210,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MPN_211,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+MPN_212,CML,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MPN_213,MPN,out_of_domain,out_of_domain,OOD score 598.11 above the in-domain threshold 576.11
+MPN_214,MPN,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+MPN_215,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+MPN_216,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+MPN_217,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MPN_218,MPN,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+MPN_219,MPN,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.002 recorded, not used outside R1/R4"
+MPN_220,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+MPN_221,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MPN_222,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MPN_223,MPN,out_of_domain,out_of_domain,OOD score 648.51 above the in-domain threshold 576.11
+MPN_224,CML,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+MPN_225,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MPN_226,ET,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MPN_227,MPN,indeterminate,indeterminate,only 493/499 localized objects were classified as leukocytes; the localizer output is not interpretable
+MPN_228,CML,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MPN_229,MPN,out_of_domain,out_of_domain,OOD score 627.18 above the in-domain threshold 576.11
+MPN_230,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MPN_231,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MPN_232,PV,out_of_domain,out_of_domain,OOD score 604.32 above the in-domain threshold 576.11
+MPN_233,MPN,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.049 recorded, not used outside R1/R4"
+MPN_234,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MPN_235,CML,out_of_domain,out_of_domain,OOD score 583.72 above the in-domain threshold 576.11
+MPN_236,CML,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.726 recorded, not used outside R1/R4"
+MPN_237,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+MPN_238,MPN,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_225,MM,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_226,MM,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.006 recorded, not used outside R1/R4"
+PCN_227,MM,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+PCN_228,MM,acute_blastic__myeloid_oriented,indeterminate,blast fraction 27.4% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+PCN_229,MM,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_230,MM,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_231,MM,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_232,MM,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_233,MM,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_234,MM,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_235,MM,acute_blastic__myeloid_oriented,indeterminate,blast fraction 25.1% cannot be placed with respect to the 20% criterion at gamma=0.9 on 499 cells
+PCN_236,MM,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+PCN_237,MM,out_of_domain,out_of_domain,OOD score 732.21 above the in-domain threshold 576.11
+PCN_238,MM,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_239,MM,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_240,MM,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_241,MM,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_242,MM,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_243,MM,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_244,MM,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.009 recorded, not used outside R1/R4"
+PCN_245,MM,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+PCN_246,MM,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_247,MM,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+PCN_248,MM,indeterminate,indeterminate,blast fraction 19.0% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+PCN_249,MM,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_250,MM,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+PCN_251,MM,indeterminate,indeterminate,blast fraction 17.9% cannot be placed with respect to the 20% criterion at gamma=0.9 on 498 cells
+PCN_252,MM,out_of_domain,out_of_domain,OOD score 596.92 above the in-domain threshold 576.11
+PCN_253,MM,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_254,MM,indeterminate,indeterminate,blast fraction 18.2% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+PCN_255,MM,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_256,MM,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+PCN_257,MM,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.006 recorded, not used outside R1/R4"
+PCN_258,PCL,out_of_domain,out_of_domain,OOD score 625.57 above the in-domain threshold 576.11
+PCN_259,MM,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.002 recorded, not used outside R1/R4"
+PCN_260,MM,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_261,MM,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.002 recorded, not used outside R1/R4"
+PCN_262,MM,out_of_domain,out_of_domain,OOD score 913.66 above the in-domain threshold 576.11
+PCN_263,MM,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_264,MM,out_of_domain,out_of_domain,OOD score 828.03 above the in-domain threshold 576.11
+PCN_265,MM,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.003 recorded, not used outside R1/R4"
+PCN_266,MM,out_of_domain,out_of_domain,OOD score 587.34 above the in-domain threshold 576.11
+PCN_267,MM,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.003 recorded, not used outside R1/R4"
+PCN_268,MM,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_269,MM,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.013 recorded, not used outside R1/R4"
+PCN_270,MM,acute_blastic__myeloid_oriented,indeterminate,blast fraction 36.7% cannot be placed with respect to the 20% criterion at gamma=0.9 on 499 cells
+PCN_271,MM,acute_blastic__myeloid_oriented,indeterminate,blast fraction 33.6% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+PCN_272,MM,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_273,MM,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_274,MM,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_275,MM,out_of_domain,out_of_domain,OOD score 651.82 above the in-domain threshold 576.11
+PCN_276,MM,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_277,MM,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+PCN_278,MM,out_of_domain,out_of_domain,OOD score 581.46 above the in-domain threshold 576.11
+PCN_279,MM,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+PCN_280,MM,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.006 recorded, not used outside R1/R4"
+PCN_281,MM,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.102 recorded, not used outside R1/R4"
+RCH_169,Reactive changes,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_170,Reactive changes,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_171,Reactive changes,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_172,Reactive changes,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_173,Reactive changes,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_174,Reactive changes,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_175,Reactive changes,out_of_domain,out_of_domain,OOD score 585.35 above the in-domain threshold 576.11
+RCH_176,Reactive changes,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.006 recorded, not used outside R1/R4"
+RCH_177,Reactive changes,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_178,Reactive changes,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_179,Reactive changes,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_180,Reactive changes,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_181,Reactive changes,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.814 recorded, not used outside R1/R4"
+RCH_182,Reactive changes,indeterminate,indeterminate,blast fraction 17.6% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+RCH_183,Reactive changes,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_184,Reactive changes,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_185,Reactive changes,non_leukemic,indeterminate,blast fraction 3.7% cannot be placed with respect to the 20% criterion at gamma=0.9 on 299 cells
+RCH_186,Reactive changes,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_187,Reactive changes,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_188,Reactive changes,out_of_domain,out_of_domain,OOD score 620.22 above the in-domain threshold 576.11
+RCH_189,Reactive changes,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_190,Reactive changes,out_of_domain,out_of_domain,OOD score 669.52 above the in-domain threshold 576.11
+RCH_191,Reactive changes,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_192,Reactive changes,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_193,Reactive changes,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_194,Reactive changes,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_195,Reactive changes,acute_blastic__myeloid_oriented,indeterminate,blast fraction 27.5% cannot be placed with respect to the 20% criterion at gamma=0.9 on 494 cells
+RCH_196,Reactive changes,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_197,Reactive changes,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_198,Reactive changes,acute_blastic__myeloid_oriented,indeterminate,blast fraction 26.7% cannot be placed with respect to the 20% criterion at gamma=0.9 on 300 cells
+RCH_199,Reactive changes,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_200,Reactive changes,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_201,Reactive changes,acute_blastic__myeloid_oriented,indeterminate,blast fraction 31.4% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+RCH_202,Reactive changes,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_203,Reactive changes,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_204,Reactive changes,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_205,Reactive changes,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_206,Reactive changes,indeterminate,indeterminate,blast fraction 23.2% cannot be placed with respect to the 20% criterion at gamma=0.9 on 357 cells
+RCH_207,Reactive changes,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_208,Reactive changes,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+RCH_209,Reactive changes,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+RCH_210,Reactive changes,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+SCD_396,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+SCD_397,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_398,Stem cell donor,indeterminate,indeterminate,blast fraction 21.2% cannot be placed with respect to the 20% criterion at gamma=0.9 on 486 cells
+SCD_399,Stem cell donor,indeterminate,indeterminate,blast fraction 18.1% cannot be placed with respect to the 20% criterion at gamma=0.9 on 227 cells
+SCD_400,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_401,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_402,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+SCD_403,Stem cell donor,indeterminate,indeterminate,blast fraction 18.3% cannot be placed with respect to the 20% criterion at gamma=0.9 on 498 cells
+SCD_404,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_405,Stem cell donor,indeterminate,indeterminate,blast fraction 19.2% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+SCD_406,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_407,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_408,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_409,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_410,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_411,Stem cell donor,indeterminate,indeterminate,blast fraction 18.0% cannot be placed with respect to the 20% criterion at gamma=0.9 on 499 cells
+SCD_412,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_413,Stem cell donor,indeterminate,indeterminate,blast fraction 23.9% cannot be placed with respect to the 20% criterion at gamma=0.9 on 498 cells
+SCD_414,Stem cell donor,indeterminate,indeterminate,blast fraction 20.2% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+SCD_415,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_416,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_417,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+SCD_418,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_419,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_420,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+SCD_421,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_422,Stem cell donor,acute_blastic__myeloid_oriented,indeterminate,blast fraction 27.9% cannot be placed with respect to the 20% criterion at gamma=0.9 on 499 cells
+SCD_423,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_424,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_425,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_426,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_427,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_428,Stem cell donor,indeterminate,indeterminate,blast fraction 20.6% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+SCD_429,Stem cell donor,indeterminate,indeterminate,blast fraction 20.1% cannot be placed with respect to the 20% criterion at gamma=0.9 on 498 cells
+SCD_430,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_431,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_432,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_433,Stem cell donor,acute_blastic__myeloid_oriented,indeterminate,blast fraction 29.9% cannot be placed with respect to the 20% criterion at gamma=0.9 on 498 cells
+SCD_434,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_435,Stem cell donor,indeterminate,indeterminate,blast fraction 23.3% cannot be placed with respect to the 20% criterion at gamma=0.9 on 498 cells
+SCD_436,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_437,Stem cell donor,indeterminate,indeterminate,blast fraction 18.0% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+SCD_438,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_439,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_440,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_441,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_442,Stem cell donor,indeterminate,indeterminate,blast fraction 19.6% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+SCD_443,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_444,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_445,Stem cell donor,indeterminate,indeterminate,blast fraction 20.2% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+SCD_446,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_447,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_448,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_449,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_450,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_451,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_452,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_453,Stem cell donor,acute_blastic__myeloid_oriented,indeterminate,blast fraction 25.4% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+SCD_454,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_455,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_456,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_457,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_458,Stem cell donor,indeterminate,indeterminate,blast fraction 20.2% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+SCD_459,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_460,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.015 recorded, not used outside R1/R4"
+SCD_461,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_462,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+SCD_463,Stem cell donor,indeterminate,indeterminate,blast fraction 22.6% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+SCD_464,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_465,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_466,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_467,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_468,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_469,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_470,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_471,Stem cell donor,indeterminate,indeterminate,blast fraction 23.4% cannot be placed with respect to the 20% criterion at gamma=0.9 on 479 cells
+SCD_472,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_473,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_474,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_475,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.001 recorded, not used outside R1/R4"
+SCD_476,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_477,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_478,Stem cell donor,indeterminate,indeterminate,blast fraction 21.0% cannot be placed with respect to the 20% criterion at gamma=0.9 on 499 cells
+SCD_479,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_480,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_481,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_482,Stem cell donor,indeterminate,indeterminate,blast fraction 17.4% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+SCD_483,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_484,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_485,Stem cell donor,acute_blastic__myeloid_oriented,indeterminate,blast fraction 24.8% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+SCD_486,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_487,Stem cell donor,indeterminate,indeterminate,blast fraction 23.6% cannot be placed with respect to the 20% criterion at gamma=0.9 on 500 cells
+SCD_488,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_489,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_490,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_491,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_492,Stem cell donor,indeterminate,indeterminate,blast fraction 24.0% cannot be placed with respect to the 20% criterion at gamma=0.9 on 496 cells
+SCD_493,Stem cell donor,non_leukemic,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"
+SCD_494,Stem cell donor,indeterminate,indeterminate,"no rule reached the required confidence at gamma=0.90 ; P_abn=0.000 recorded, not used outside R1/R4"

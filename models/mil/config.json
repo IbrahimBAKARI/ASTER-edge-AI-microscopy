@@ -1,0 +1,29 @@
+{
+  "bag_size": 200,
+  "seed": 42,
+  "image_size": 224,
+  "trt_batch": 8,
+  "embedding_dim": 512,
+  "cell_classes": [
+    "myeloblast",
+    "lymphoblast",
+    "promyelocyte",
+    "promyelocyte_abnormal",
+    "myelocyte",
+    "metamyelocyte",
+    "band_neutrophil",
+    "segmented_neutrophil",
+    "basophil",
+    "eosinophil",
+    "monocyte",
+    "lymphocyte",
+    "lymphocyte_atypical",
+    "smudge_cell",
+    "erythroblast",
+    "other_artifact"
+  ],
+  "gamma": 0.9,
+  "run_id": "20260911_051357Z",
+  "torch_colab": "2.11.0+cu128",
+  "onnx_sha256": "0327c4ddf7b64bb1c473c69b2d085091379dceea69541de755c6fe5c41049593"
+}

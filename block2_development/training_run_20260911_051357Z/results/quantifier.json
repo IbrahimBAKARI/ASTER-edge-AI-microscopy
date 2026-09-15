@@ -1,0 +1,90 @@
+{
+  "abn_promy_frac": {
+    "tpr": 0.0287,
+    "fpr": 0.0032,
+    "separation": 0.0255,
+    "n_positive": 522,
+    "n_negative": 13599,
+    "quantifiable": false
+  },
+  "atypical_frac": {
+    "tpr": 0.836,
+    "fpr": 0.0049,
+    "separation": 0.8311,
+    "n_positive": 756,
+    "n_negative": 13365,
+    "quantifiable": true
+  },
+  "baso_frac": {
+    "tpr": 0.9234,
+    "fpr": 0.0006,
+    "separation": 0.9227,
+    "n_positive": 274,
+    "n_negative": 13847,
+    "quantifiable": true
+  },
+  "blast_frac": {
+    "tpr": 0.9128,
+    "fpr": 0.0453,
+    "separation": 0.8676,
+    "n_positive": 2983,
+    "n_negative": 11138,
+    "quantifiable": true
+  },
+  "ig_frac": {
+    "tpr": 0.8789,
+    "fpr": 0.0304,
+    "separation": 0.8485,
+    "n_positive": 1131,
+    "n_negative": 12990,
+    "quantifiable": true
+  },
+  "lymph_frac": {
+    "tpr": 0.8412,
+    "fpr": 0.0045,
+    "separation": 0.8367,
+    "n_positive": 1543,
+    "n_negative": 12578,
+    "quantifiable": true
+  },
+  "metamyelocyte_frac": {
+    "tpr": 0.6699,
+    "fpr": 0.0145,
+    "separation": 0.6555,
+    "n_positive": 306,
+    "n_negative": 13815,
+    "quantifiable": true
+  },
+  "mono_frac": {
+    "tpr": 0.7122,
+    "fpr": 0.0197,
+    "separation": 0.6925,
+    "n_positive": 1296,
+    "n_negative": 12825,
+    "quantifiable": true
+  },
+  "myeloblast_frac": {
+    "tpr": 0.8741,
+    "fpr": 0.0765,
+    "separation": 0.7976,
+    "n_positive": 1914,
+    "n_negative": 12207,
+    "quantifiable": true
+  },
+  "myelocyte_frac": {
+    "tpr": 0.7466,
+    "fpr": 0.0224,
+    "separation": 0.7242,
+    "n_positive": 659,
+    "n_negative": 13462,
+    "quantifiable": true
+  },
+  "smudge_frac": {
+    "tpr": 0.8703,
+    "fpr": 0.0025,
+    "separation": 0.8678,
+    "n_positive": 185,
+    "n_negative": 13936,
+    "quantifiable": true
+  }
+}

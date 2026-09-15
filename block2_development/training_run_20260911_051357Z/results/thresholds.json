@@ -1,0 +1,14 @@
+{
+  "p_abn": 0.933372,
+  "apl_abn_promy": 0.01467,
+  "ig_cml": 0.1,
+  "baso_cml": 0.02578,
+  "lymph_cll": 0.5,
+  "smudge_cll": 0.137332,
+  "atypical_reactive": 0.1,
+  "lineage_lo": 0.31134,
+  "lineage_hi": 0.31134,
+  "ood_mahalanobis": 576.111775,
+  "min_classified_frac": 0.991506,
+  "mil_temperature": 0.25
+}

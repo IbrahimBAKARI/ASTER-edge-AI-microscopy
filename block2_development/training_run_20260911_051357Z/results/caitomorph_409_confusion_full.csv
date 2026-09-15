@@ -1,0 +1,19 @@
+diagnosis_fine,acute_blastic__myeloid_oriented,indeterminate,non_leukemic,out_of_domain
+AL,2,0,0,0
+ALL,3,1,1,2
+AML,17,10,3,7
+B-cell neoplasm,16,22,12,3
+CML,0,5,1,2
+CMML,1,7,4,2
+ET,0,1,1,1
+HCL,1,1,0,1
+MDS,1,20,7,10
+MDS / MPN,0,3,2,1
+MM,4,24,21,7
+MPN,0,9,23,4
+MPN / MDS-RS-T,0,0,1,1
+PCL,0,0,0,1
+PV,0,0,0,1
+Reactive changes,3,13,23,3
+Stem cell donor,4,66,29,0
+T-cell neoplasm,0,0,1,0

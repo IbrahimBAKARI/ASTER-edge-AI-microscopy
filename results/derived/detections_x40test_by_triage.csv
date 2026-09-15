@@ -1,0 +1,9 @@
+model,verdict,fields,gt,tp,fp,fn,precision,recall,wbc_per_field
+pre_adaptation,keep,36,71,28,15,43,0.651,0.394,1.19
+pre_adaptation,review,32,49,20,8,29,0.714,0.408,0.88
+pre_adaptation,reject,36,51,25,13,26,0.658,0.49,1.06
+pre_adaptation,ALL,104,171,73,36,98,0.67,0.427,1.05
+deployed,keep,36,71,68,6,3,0.919,0.958,2.06
+deployed,review,32,49,46,3,3,0.939,0.939,1.53
+deployed,reject,36,51,50,10,1,0.833,0.98,1.67
+deployed,ALL,104,171,164,19,7,0.896,0.959,1.76

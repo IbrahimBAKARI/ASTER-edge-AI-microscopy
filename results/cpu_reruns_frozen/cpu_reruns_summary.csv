@@ -1,0 +1,10 @@
+run,material,ood_config,status,label,tier,flags,fields,detected_wbc,classified,p_abn,ood_score,ood_threshold,backend
+prototype_test_batch,"prototype test batch (test split), 104 fields",frozen (pre-registered),out_of_domain,out_of_domain,none,,104,183,183,0.9656,1022.8,576.11,pytorch
+prototype_batch_A,"prototype batch A (training split, part A), 102 fields",frozen (pre-registered),out_of_domain,out_of_domain,none,,102,211,211,0.9704,1165.0,576.11,pytorch
+prototype_batch_B,"prototype batch B (training split, part B), 101 fields",frozen (pre-registered),out_of_domain,out_of_domain,none,,101,149,149,0.9452,853.8,576.11,pytorch
+leukemiaattri_AML_heldout,"LeukemiaAttri H_100X_C1, AML, 5 held-out patients, 60 fields",frozen (pre-registered),out_of_domain,out_of_domain,none,,60,152,152,0.9846,1474.2,576.11,pytorch
+leukemiaattri_ALL_heldout,"LeukemiaAttri H_100X_C1, ALL, 4 held-out patients, 60 fields",frozen (pre-registered),out_of_domain,out_of_domain,none,,60,111,111,0.9896,1602.2,576.11,pytorch
+leukemiaattri_APL_heldout,"LeukemiaAttri H_100X_C1, APL, 1 held-out patient, 60 fields",frozen (pre-registered),out_of_domain,out_of_domain,none,,60,203,203,0.9876,1386.2,576.11,pytorch
+leukemiaattri_CML_heldout,"LeukemiaAttri H_100X_C1, CML, 2 held-out patients, 60 fields",frozen (pre-registered),out_of_domain,out_of_domain,none,,60,363,363,0.002,2823.5,576.11,pytorch
+prototype_validation_batch,"prototype validation batch (validation split), 43 fields",frozen (pre-registered),out_of_domain,out_of_domain,none,,43,71,71,0.9566,1096.9,576.11,pytorch
+allidb_fixture,"ALL-IDB L2 technical fixture (benchmark_session.txt), 9 fields",frozen (pre-registered),out_of_domain,out_of_domain,none,,9,95,95,0.9962,684.7,576.11,pytorch

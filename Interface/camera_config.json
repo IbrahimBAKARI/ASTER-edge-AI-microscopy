@@ -1,0 +1,11 @@
+{
+  "device": "/dev/video0",
+  "fourcc": "MJPG",
+  "capture_width": 4032,
+  "capture_height": 3040,
+  "fps": 10,
+  "buffersize": 1,
+  "preview_max_width": 1280,
+  "still_jpeg_quality": 97,
+  "_comment": "Arducam IMX477 HQ (Raspberry Pi HQ sensor), USB/UVC, MJPEG only. 4032x3040 is the full native resolution (12.3 MP) - the same setting the prototype capture tool uses for the slide dataset. Other valid modes: 3840x2160, 2592x1944, 2560x1440, 1920x1080, 1280x960, 1280x720. The live preview is downscaled to preview_max_width; every 'Capture Frame' saves the full-resolution frame. Override the device with the LEUKEMIA_CAMERA_DEVICE env var, or point at another config file with LEUKEMIA_CAMERA_CONFIG."
+}

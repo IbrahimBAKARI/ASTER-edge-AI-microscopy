@@ -1,0 +1,26 @@
+{
+  "non_leukemic, donors": {
+    "frozen": "29/99 = 0.293 [0.212, 0.389]",
+    "amended": "0/99 = 0.000 [0.000, 0.037]"
+  },
+  "non_leukemic, reactive": {
+    "frozen": "23/42 = 0.548 [0.399, 0.688]",
+    "amended": "0/42 = 0.000 [0.000, 0.084]"
+  },
+  "specificity vs donors (no leukaemic label)": {
+    "frozen": "95/99 = 0.960 [0.901, 0.984]",
+    "amended": "99/99 = 1.000 [0.963, 1.000]"
+  },
+  "specificity vs reactive": {
+    "frozen": "39/42 = 0.929 [0.810, 0.975]",
+    "amended": "42/42 = 1.000 [0.916, 1.000]"
+  },
+  "sensitivity acute (AML/ALL/AL -> acute_blastic)": {
+    "frozen": "22/46 = 0.478 [0.341, 0.619]",
+    "amended": "10/46 = 0.217 [0.123, 0.356]"
+  },
+  "indeterminate, all patients": {
+    "frozen": "182/409 = 0.445 [0.398, 0.493]",
+    "amended": "345/409 = 0.844 [0.805, 0.876]"
+  }
+}

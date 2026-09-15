@@ -1,0 +1,524 @@
+{
+  "config": {
+    "bag_size": 200,
+    "seed": 42,
+    "image_size": 224,
+    "trt_batch": 8,
+    "embedding_dim": 512,
+    "cell_classes": [
+      "myeloblast",
+      "lymphoblast",
+      "promyelocyte",
+      "promyelocyte_abnormal",
+      "myelocyte",
+      "metamyelocyte",
+      "band_neutrophil",
+      "segmented_neutrophil",
+      "basophil",
+      "eosinophil",
+      "monocyte",
+      "lymphocyte",
+      "lymphocyte_atypical",
+      "smudge_cell",
+      "erythroblast",
+      "other_artifact"
+    ],
+    "gamma": 0.9,
+    "run_id": "20260911_051357Z",
+    "torch_colab": "2.11.0+cu128",
+    "onnx_sha256": "0327c4ddf7b64bb1c473c69b2d085091379dceea69541de755c6fe5c41049593"
+  },
+  "environment": {
+    "python": "3.10.12",
+    "torch": "2.8.0",
+    "cuda": true,
+    "numpy": "1.26.4",
+    "pillow_webp": true,
+    "tensorrt": "10.3.0"
+  },
+  "checks": [
+    {
+      "check": "pillow can read WebP",
+      "pass": true,
+      "detail": "golden crops are lossless WebP"
+    },
+    {
+      "check": "bag RCH_198",
+      "pass": true,
+      "detail": "200 indices, numpy 1.26.4"
+    },
+    {
+      "check": "bag ALK_199",
+      "pass": true,
+      "detail": "200 indices, numpy 1.26.4"
+    },
+    {
+      "check": "bag ALK_200",
+      "pass": true,
+      "detail": "189 indices, numpy 1.26.4"
+    },
+    {
+      "check": "bag RCH_185",
+      "pass": true,
+      "detail": "200 indices, numpy 1.26.4"
+    },
+    {
+      "check": "bag SCD_399",
+      "pass": true,
+      "detail": "200 indices, numpy 1.26.4"
+    },
+    {
+      "check": "bag MDS_157",
+      "pass": true,
+      "detail": "82 indices, numpy 1.26.4"
+    },
+    {
+      "check": "crop -> tensor",
+      "pass": true,
+      "detail": "max |jetson - colab| = 0.00e+00"
+    },
+    {
+      "check": "encoder PyTorch fp32",
+      "pass": true,
+      "detail": "min cosine vs Colab = 0.9999998"
+    },
+    {
+      "check": "encoder TensorRT (encoder_fp16.engine)",
+      "pass": true,
+      "detail": "min cosine vs Colab = 0.999998"
+    },
+    {
+      "check": "cell class, TensorRT",
+      "pass": true,
+      "detail": "16/16 argmax identical"
+    },
+    {
+      "check": "RCH_198 [torch] label",
+      "pass": true,
+      "detail": "acute_blastic__myeloid_oriented (Colab: acute_blastic__myeloid_oriented)"
+    },
+    {
+      "check": "RCH_198 [torch] counts",
+      "pass": true,
+      "detail": "sum|delta| = 0.00% of N_c"
+    },
+    {
+      "check": "RCH_198 [torch] P_abn",
+      "pass": true,
+      "detail": "raw delta 0.0001, calibrated 0.0317 vs 0.0317"
+    },
+    {
+      "check": "RCH_198 [tensorrt] label",
+      "pass": true,
+      "detail": "acute_blastic__myeloid_oriented (Colab: acute_blastic__myeloid_oriented)"
+    },
+    {
+      "check": "RCH_198 [tensorrt] counts",
+      "pass": true,
+      "detail": "sum|delta| = 1.33% of N_c"
+    },
+    {
+      "check": "RCH_198 [tensorrt] P_abn",
+      "pass": true,
+      "detail": "raw delta 0.0001, calibrated 0.0317 vs 0.0317"
+    },
+    {
+      "check": "ALK_199 [torch] label",
+      "pass": true,
+      "detail": "acute_blastic__myeloid_oriented (Colab: acute_blastic__myeloid_oriented)"
+    },
+    {
+      "check": "ALK_199 [torch] counts",
+      "pass": true,
+      "detail": "sum|delta| = 0.00% of N_c"
+    },
+    {
+      "check": "ALK_199 [torch] P_abn",
+      "pass": true,
+      "detail": "raw delta 0.0001, calibrated 0.9899 vs 0.9899"
+    },
+    {
+      "check": "ALK_199 [tensorrt] label",
+      "pass": true,
+      "detail": "acute_blastic__myeloid_oriented (Colab: acute_blastic__myeloid_oriented)"
+    },
+    {
+      "check": "ALK_199 [tensorrt] counts",
+      "pass": true,
+      "detail": "sum|delta| = 0.93% of N_c"
+    },
+    {
+      "check": "ALK_199 [tensorrt] P_abn",
+      "pass": true,
+      "detail": "raw delta 0.0001, calibrated 0.9899 vs 0.9899"
+    },
+    {
+      "check": "ALK_200 [torch] label",
+      "pass": true,
+      "detail": "non_leukemic (Colab: non_leukemic)"
+    },
+    {
+      "check": "ALK_200 [torch] counts",
+      "pass": true,
+      "detail": "sum|delta| = 0.00% of N_c"
+    },
+    {
+      "check": "ALK_200 [torch] P_abn",
+      "pass": true,
+      "detail": "raw delta 0.0000, calibrated 0.0003 vs 0.0003"
+    },
+    {
+      "check": "ALK_200 [tensorrt] label",
+      "pass": true,
+      "detail": "non_leukemic (Colab: non_leukemic)"
+    },
+    {
+      "check": "ALK_200 [tensorrt] counts",
+      "pass": true,
+      "detail": "sum|delta| = 0.00% of N_c"
+    },
+    {
+      "check": "ALK_200 [tensorrt] P_abn",
+      "pass": true,
+      "detail": "raw delta 0.0000, calibrated 0.0003 vs 0.0003"
+    },
+    {
+      "check": "RCH_185 [torch] label",
+      "pass": true,
+      "detail": "non_leukemic (Colab: non_leukemic)"
+    },
+    {
+      "check": "RCH_185 [torch] counts",
+      "pass": true,
+      "detail": "sum|delta| = 0.00% of N_c"
+    },
+    {
+      "check": "RCH_185 [torch] P_abn",
+      "pass": true,
+      "detail": "raw delta 0.0000, calibrated 0.0001 vs 0.0001"
+    },
+    {
+      "check": "RCH_185 [tensorrt] label",
+      "pass": true,
+      "detail": "non_leukemic (Colab: non_leukemic)"
+    },
+    {
+      "check": "RCH_185 [tensorrt] counts",
+      "pass": true,
+      "detail": "sum|delta| = 0.00% of N_c"
+    },
+    {
+      "check": "RCH_185 [tensorrt] P_abn",
+      "pass": true,
+      "detail": "raw delta 0.0000, calibrated 0.0001 vs 0.0001"
+    },
+    {
+      "check": "SCD_399 [torch] label",
+      "pass": true,
+      "detail": "indeterminate (Colab: indeterminate)"
+    },
+    {
+      "check": "SCD_399 [torch] counts",
+      "pass": true,
+      "detail": "sum|delta| = 0.00% of N_c"
+    },
+    {
+      "check": "SCD_399 [torch] P_abn",
+      "pass": true,
+      "detail": "raw delta 0.0000, calibrated 0.0002 vs 0.0002"
+    },
+    {
+      "check": "SCD_399 [tensorrt] label",
+      "pass": true,
+      "detail": "indeterminate (Colab: indeterminate)"
+    },
+    {
+      "check": "SCD_399 [tensorrt] counts",
+      "pass": true,
+      "detail": "sum|delta| = 0.00% of N_c"
+    },
+    {
+      "check": "SCD_399 [tensorrt] P_abn",
+      "pass": true,
+      "detail": "raw delta 0.0000, calibrated 0.0002 vs 0.0002"
+    },
+    {
+      "check": "MDS_157 [torch] label",
+      "pass": true,
+      "detail": "out_of_domain (Colab: out_of_domain)"
+    },
+    {
+      "check": "MDS_157 [torch] counts",
+      "pass": true,
+      "detail": "sum|delta| = 0.00% of N_c"
+    },
+    {
+      "check": "MDS_157 [torch] P_abn",
+      "pass": true,
+      "detail": "raw delta 0.0001, calibrated 0.0178 vs 0.0178"
+    },
+    {
+      "check": "MDS_157 [tensorrt] label",
+      "pass": true,
+      "detail": "out_of_domain (Colab: out_of_domain)"
+    },
+    {
+      "check": "MDS_157 [tensorrt] counts",
+      "pass": true,
+      "detail": "sum|delta| = 0.00% of N_c"
+    },
+    {
+      "check": "MDS_157 [tensorrt] P_abn",
+      "pass": true,
+      "detail": "raw delta 0.0001, calibrated 0.0179 vs 0.0178"
+    }
+  ],
+  "sessions": [
+    {
+      "session": "RCH_198",
+      "backend": "torch",
+      "expected": "acute_blastic__myeloid_oriented",
+      "got": "acute_blastic__myeloid_oriented",
+      "tier": "pattern",
+      "count_delta": 0.0,
+      "p_abn_raw_delta": 9e-05,
+      "p_abn": 0.0317,
+      "p_abn_expected": 0.0317,
+      "ood": 458.93,
+      "ood_expected": 458.9,
+      "timing_ms": {
+        "encode_ms": 2306.8,
+        "heads_ms": 264.8,
+        "grid_ms": 266.3
+      },
+      "wall_ms": 2838.7,
+      "n_crops": 300
+    },
+    {
+      "session": "RCH_198",
+      "backend": "tensorrt",
+      "expected": "acute_blastic__myeloid_oriented",
+      "got": "acute_blastic__myeloid_oriented",
+      "tier": "pattern",
+      "count_delta": 0.0133,
+      "p_abn_raw_delta": 6e-05,
+      "p_abn": 0.0317,
+      "p_abn_expected": 0.0317,
+      "ood": 459.13,
+      "ood_expected": 458.9,
+      "timing_ms": {
+        "encode_ms": 1618.9,
+        "heads_ms": 7.9,
+        "grid_ms": 271.7
+      },
+      "wall_ms": 1899.1,
+      "n_crops": 300
+    },
+    {
+      "session": "ALK_199",
+      "backend": "torch",
+      "expected": "acute_blastic__myeloid_oriented",
+      "got": "acute_blastic__myeloid_oriented",
+      "tier": "reference",
+      "count_delta": 0.0,
+      "p_abn_raw_delta": 6e-05,
+      "p_abn": 0.9899,
+      "p_abn_expected": 0.9899,
+      "ood": 383.57,
+      "ood_expected": 383.54,
+      "timing_ms": {
+        "encode_ms": 3086.4,
+        "heads_ms": 21.5,
+        "grid_ms": 357.3
+      },
+      "wall_ms": 3465.8,
+      "n_crops": 432
+    },
+    {
+      "session": "ALK_199",
+      "backend": "tensorrt",
+      "expected": "acute_blastic__myeloid_oriented",
+      "got": "acute_blastic__myeloid_oriented",
+      "tier": "reference",
+      "count_delta": 0.0093,
+      "p_abn_raw_delta": 5e-05,
+      "p_abn": 0.9899,
+      "p_abn_expected": 0.9899,
+      "ood": 383.56,
+      "ood_expected": 383.54,
+      "timing_ms": {
+        "encode_ms": 2528.1,
+        "heads_ms": 6.0,
+        "grid_ms": 367.4
+      },
+      "wall_ms": 2902.0,
+      "n_crops": 432
+    },
+    {
+      "session": "ALK_200",
+      "backend": "torch",
+      "expected": "non_leukemic",
+      "got": "non_leukemic",
+      "tier": "screening",
+      "count_delta": 0.0,
+      "p_abn_raw_delta": 4e-05,
+      "p_abn": 0.0003,
+      "p_abn_expected": 0.0003,
+      "ood": 432.06,
+      "ood_expected": 432.03,
+      "timing_ms": {
+        "encode_ms": 1513.1,
+        "heads_ms": 5.3,
+        "grid_ms": 176.9
+      },
+      "wall_ms": 1695.8,
+      "n_crops": 189
+    },
+    {
+      "session": "ALK_200",
+      "backend": "tensorrt",
+      "expected": "non_leukemic",
+      "got": "non_leukemic",
+      "tier": "screening",
+      "count_delta": 0.0,
+      "p_abn_raw_delta": 1e-05,
+      "p_abn": 0.0003,
+      "p_abn_expected": 0.0003,
+      "ood": 431.62,
+      "ood_expected": 432.03,
+      "timing_ms": {
+        "encode_ms": 1142.3,
+        "heads_ms": 6.9,
+        "grid_ms": 183.2
+      },
+      "wall_ms": 1333.0,
+      "n_crops": 189
+    },
+    {
+      "session": "RCH_185",
+      "backend": "torch",
+      "expected": "non_leukemic",
+      "got": "non_leukemic",
+      "tier": "pattern",
+      "count_delta": 0.0,
+      "p_abn_raw_delta": 2e-05,
+      "p_abn": 0.0001,
+      "p_abn_expected": 0.0001,
+      "ood": 416.15,
+      "ood_expected": 416.19,
+      "timing_ms": {
+        "encode_ms": 2290.5,
+        "heads_ms": 6.4,
+        "grid_ms": 264.0
+      },
+      "wall_ms": 2561.5,
+      "n_crops": 300
+    },
+    {
+      "session": "RCH_185",
+      "backend": "tensorrt",
+      "expected": "non_leukemic",
+      "got": "non_leukemic",
+      "tier": "pattern",
+      "count_delta": 0.0,
+      "p_abn_raw_delta": 1e-05,
+      "p_abn": 0.0001,
+      "p_abn_expected": 0.0001,
+      "ood": 415.68,
+      "ood_expected": 416.19,
+      "timing_ms": {
+        "encode_ms": 1601.9,
+        "heads_ms": 23.1,
+        "grid_ms": 268.5
+      },
+      "wall_ms": 1894.6,
+      "n_crops": 300
+    },
+    {
+      "session": "SCD_399",
+      "backend": "torch",
+      "expected": "indeterminate",
+      "got": "indeterminate",
+      "tier": "pattern",
+      "count_delta": 0.0,
+      "p_abn_raw_delta": 2e-05,
+      "p_abn": 0.0002,
+      "p_abn_expected": 0.0002,
+      "ood": 452.32,
+      "ood_expected": 452.25,
+      "timing_ms": {
+        "encode_ms": 1776.1,
+        "heads_ms": 5.0,
+        "grid_ms": 193.0
+      },
+      "wall_ms": 1974.7,
+      "n_crops": 228
+    },
+    {
+      "session": "SCD_399",
+      "backend": "tensorrt",
+      "expected": "indeterminate",
+      "got": "indeterminate",
+      "tier": "pattern",
+      "count_delta": 0.0,
+      "p_abn_raw_delta": 0.0,
+      "p_abn": 0.0002,
+      "p_abn_expected": 0.0002,
+      "ood": 453.14,
+      "ood_expected": 452.25,
+      "timing_ms": {
+        "encode_ms": 1356.6,
+        "heads_ms": 17.9,
+        "grid_ms": 196.1
+      },
+      "wall_ms": 1571.3,
+      "n_crops": 228
+    },
+    {
+      "session": "MDS_157",
+      "backend": "torch",
+      "expected": "out_of_domain",
+      "got": "out_of_domain",
+      "tier": "none",
+      "count_delta": 0.0,
+      "p_abn_raw_delta": 6e-05,
+      "p_abn": 0.0178,
+      "p_abn_expected": 0.0178,
+      "ood": 631.02,
+      "ood_expected": 631.06,
+      "timing_ms": {
+        "encode_ms": 655.4,
+        "heads_ms": 7.5,
+        "grid_ms": 77.8
+      },
+      "wall_ms": 741.2,
+      "n_crops": 82
+    },
+    {
+      "session": "MDS_157",
+      "backend": "tensorrt",
+      "expected": "out_of_domain",
+      "got": "out_of_domain",
+      "tier": "none",
+      "count_delta": 0.0,
+      "p_abn_raw_delta": 0.00011,
+      "p_abn": 0.0179,
+      "p_abn_expected": 0.0178,
+      "ood": 630.9,
+      "ood_expected": 631.06,
+      "timing_ms": {
+        "encode_ms": 486.7,
+        "heads_ms": 4.2,
+        "grid_ms": 81.7
+      },
+      "wall_ms": 573.3,
+      "n_crops": 82
+    }
+  ],
+  "latency_ms": {
+    "n_crops": 300,
+    "encode_ms": 1738.2,
+    "heads_ms": 6.4,
+    "grid_ms": 263.3
+  }
+}

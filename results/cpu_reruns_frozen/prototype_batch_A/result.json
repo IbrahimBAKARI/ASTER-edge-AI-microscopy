@@ -1,0 +1,90 @@
+{
+  "session_id": "prototype_batch_A",
+  "status": "out_of_domain",
+  "label": "out_of_domain",
+  "tier": "none",
+  "final_calibrated_probability": 0.9703928744883743,
+  "flags": [],
+  "reasons": [
+    "OOD score 1164.98 above the in-domain threshold 576.11"
+  ],
+  "population_profile": {
+    "myeloblast": 0.46445497630331756,
+    "lymphoblast": 0.18009478672985782,
+    "promyelocyte": 0.0,
+    "promyelocyte_abnormal": 0.0,
+    "myelocyte": 0.004739336492890996,
+    "metamyelocyte": 0.0,
+    "band_neutrophil": 0.0,
+    "segmented_neutrophil": 0.023696682464454975,
+    "basophil": 0.0,
+    "eosinophil": 0.004739336492890996,
+    "monocyte": 0.2938388625592417,
+    "lymphocyte": 0.0,
+    "lymphocyte_atypical": 0.02843601895734597,
+    "smudge_cell": 0.0,
+    "erythroblast": 0.0,
+    "other_artifact": 0.0
+  },
+  "quantities": {
+    "blast_frac": 0.6445497630331753,
+    "ig_frac": 0.004739336492890996,
+    "baso_frac": 0.0,
+    "lymph_frac": 0.0,
+    "smudge_frac": 0.0,
+    "atypical_frac": 0.02843601895734597,
+    "mono_frac": 0.2938388625592417,
+    "abn_promy_frac": 0.0,
+    "myeloblast_frac": 0.46445497630331756,
+    "myelocyte_frac": 0.004739336492890996,
+    "metamyelocyte_frac": 0.0
+  },
+  "verdicts": {},
+  "uncertainty": {
+    "p_abn_raw": 0.7052493095397949,
+    "p_abn": 0.9703928744883743,
+    "ood_score": 1164.980732303749,
+    "ood_threshold": 576.1117745962939
+  },
+  "evidence": {
+    "top_attended": [
+      1,
+      164,
+      67,
+      21,
+      188,
+      76,
+      121,
+      165,
+      111,
+      95
+    ],
+    "attention_weights": [
+      0.015267760492861271,
+      0.013845720328390598,
+      0.01291739847511053,
+      0.012578781694173813,
+      0.012219942174851894,
+      0.011782985180616379,
+      0.011690013110637665,
+      0.010384732857346535,
+      0.010021358728408813,
+      0.009992624633014202
+    ]
+  },
+  "number_of_fields": 102,
+  "number_of_detected_wbc": 211,
+  "number_of_classified_leukocytes": 211,
+  "device": "cpu",
+  "inference_backend": "pytorch",
+  "grid_sha256": "bd88c4b83d47d87188f2ef6e540a6d971f8c95c0e0e7665ebe2f274b3809efd2",
+  "warnings": [],
+  "timing_ms": {
+    "image_loading": 1.626,
+    "yolo": 24855.272,
+    "crop_preparation": 259.935,
+    "mil": 5408.224,
+    "total": 30526.008
+  },
+  "final_label": "no_decision"
+}

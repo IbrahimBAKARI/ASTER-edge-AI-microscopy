@@ -1,0 +1,2 @@
+label,n_classified,n_crops,ood,p_abn,reasons,session,tier
+out_of_domain,149,149,855.48,0.9452,OOD score 855.48 above the in-domain threshold 576.11,session_000,none

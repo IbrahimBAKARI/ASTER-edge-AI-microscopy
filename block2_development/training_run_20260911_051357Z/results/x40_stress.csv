@@ -1,0 +1,4 @@
+session,n,label,tier,ood,p_abn,reasons
+x40_000,200,out_of_domain,none,1003.3277852835531,0.966691941343837,OOD score 1003.33 above the in-domain threshold 576.11
+x40_001,200,out_of_domain,none,1194.9800403829645,0.9705168799700403,OOD score 1194.98 above the in-domain threshold 576.11
+x40_002,200,out_of_domain,none,956.9927636941197,0.9471477637025066,OOD score 956.99 above the in-domain threshold 576.11

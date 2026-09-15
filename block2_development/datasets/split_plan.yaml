@@ -1,0 +1,118 @@
+# SUPERSEDED, 2026-09-10 by datasets/build_splits.py, which implements the split
+# discipline of PREREGISTRATION.md sections 5.2 and 6.3 and runs a patient-leakage check.
+# Kept for the record.
+version: "0.1-draft"
+seed: 42
+status: awaiting_user_review
+
+global_rules:
+  group_key: patient_id
+  no_patient_overlap: [train, val, calibration, test_internal, test_final, stress_ood]
+  calibration_sources_minimum: 2
+  final_test_single_use: true
+  caitomorph_excluded_from_ssl: true
+  note: "Final-test data never influence weights, normalization, early stopping, calibration, OOD fitting, or hyperparameters."
+
+sources:
+  aml_mll:
+    available: true
+    unit: patient
+    patients: 189
+    assignment:
+      train: "70% stratified by bag_label"
+      val: "15% stratified by bag_label"
+      calibration: "15% stratified by bag_label"
+
+  millie_apl:
+    available: true
+    unit: patient
+    patients: 106
+    assignment:
+      train: "Discovery cohort (82: 60 AML, 22 APL)"
+      test_internal: "Validation cohort (24: 12 AML, 12 APL)"
+    note: "Preserve the authors' cohort boundary; do not calibrate on Validation."
+
+  leukemia_attri:
+    available: true
+    unit: patient
+    observable_patient_ids: 47
+    assignment:
+      train: "80% of source-provided train patients, grouped across all 11 domains"
+      calibration: "20% of source-provided train patients, grouped across all 11 domains"
+      test_internal: "source-provided test patients, grouped across all 11 domains"
+    note: "All acquisition-domain copies of one patient remain in the same split."
+
+  aml_lmu:
+    available: true
+    unit: image
+    assignment:
+      cell_head_train_only: true
+    headline_metrics: false
+    calibration: false
+    note: "The public image filenames do not recover the 200 patient identities."
+
+  all_idb2:
+    available: true
+    unit: image
+    assignment:
+      low_weight_train_only: true
+    sample_weight: 0.3
+    headline_metrics: false
+    calibration: false
+
+  all_idb1:
+    available: true
+    assignment: {quarantine: true}
+    note: "Local content does not match the canonical release description."
+
+  taleqani_all:
+    available: true
+    unit: image
+    assignment:
+      low_weight_cell_train_only: true
+    sample_weight: 0.3
+    headline_metrics: false
+    calibration: false
+
+  caitomorph:
+    available: true
+    unit: patient
+    patients: 409
+    assignment: {test_final: "all 409 patients"}
+    prohibited: [train, val, calibration, ssl, ood_fit, threshold_selection]
+
+  aster_x40:
+    available: true
+    unit: acquisition_cluster
+    assignment:
+      ssl: "train/val clusters only"
+      stress_ood: "104 held-out test fields; session decisions only"
+    supervised_label_weight: 0.0
+
+  pbc_acevedo:
+    available: false
+    intended: cell_head_and_ssl
+  raabin_wbc:
+    available: false
+    intended: domain_diversity_and_cell_head
+  bone_marrow_mll:
+    available: false
+    intended: excluded_from_v1
+    prohibited: [supervised_training, calibration, ood_fit, threshold_selection, validation, test]
+    optional_future_use: "isolated SSL ablation only; retain only after peripheral-blood LOSO benefit and no calibration/specificity degradation"
+    note: "Bone-marrow composition and precursor prevalence differ from peripheral blood and may create harmful shortcuts."
+  c_nmc_2019:
+    available: false
+    intended: patient_level_all_training_and_internal_test
+
+evaluation:
+  leave_one_source_out:
+    - held_out: aml_mll
+      endpoints: [level1, acute_blastic, APL_flag]
+    - held_out: millie_apl
+      endpoints: [APL_flag]
+    - held_out: leukemia_attri
+      endpoints: [level2, APL_flag, chronic_lymphoid_vs_myeloid]
+  final:
+    held_out: caitomorph
+    run_after_design_lock: true

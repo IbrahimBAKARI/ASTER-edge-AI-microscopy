@@ -1,0 +1,30 @@
+[
+  {
+    "model": "exp2_multisharpness__nonone",
+    "precision": 0.65,
+    "recall": 0.3567,
+    "map50": 0.3958,
+    "map50_95": 0.2002
+  },
+  {
+    "model": "exp4_domain_aug__nonone",
+    "precision": 0.5367,
+    "recall": 0.3626,
+    "map50": 0.3706,
+    "map50_95": 0.2152
+  },
+  {
+    "model": "exp3_multidomain__nonone",
+    "precision": 0.5089,
+    "recall": 0.3158,
+    "map50": 0.309,
+    "map50_95": 0.1646
+  },
+  {
+    "model": "exp4_domain_aug__2class",
+    "precision": 0.4854,
+    "recall": 0.2982,
+    "map50": 0.3058,
+    "map50_95": 0.1813
+  }
+]

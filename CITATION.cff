@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite the associated article."
+title: "ASTER: detachable edge-AI add-on for conventional microscopes (deployed pipeline, models and results)"
+type: software
+version: "1.0.0"
+license: AGPL-3.0-only
+repository-code: "https://github.com/IbrahimBAKARI/ASTER-edge-AI-microscopy"
+# doi: "10.5281/zenodo.<id>"                                      # to add once Zenodo has archived the release
+authors:
+  - given-names: Ibrahim
+    family-names: Bakari Sani
+    affiliation: "Research Foundation for Research Development and Innovation in Science and Engineering, Casablanca, Morocco; DELTA Laboratory, ENSAM, University Hassan II Casablanca, Morocco"
+  - given-names: Ikram
+    family-names: Debbarh
+    affiliation: "Research Foundation for Research Development and Innovation in Science and Engineering, Casablanca, Morocco"
+  - given-names: Nadia
+    family-names: Machkour
+    affiliation: "DELTA Laboratory, ENSAM, University Hassan II Casablanca, Morocco"
+  - given-names: Ilham
+    family-names: Battas
+    affiliation: "Research Foundation for Research Development and Innovation in Science and Engineering, Casablanca, Morocco"
+keywords:
+  - edge AI
+  - digital microscopy
+  - white blood cells
+  - leukemia screening
+  - multiple-instance learning
+  - out-of-distribution detection
+  - pre-registration
+  - YOLO11
+  - Jetson Orin Nano
+preferred-citation:
+  type: article
+  title: "A Detachable Edge-AI Add-On for Conventional Microscopes: Acquisition-Domain Adaptation and Pre-Registered, Abstention-Aware Session-Level Leukemia Screening"
+  journal: "IEEE Access"
+  year: 2026
+  authors:
+    - given-names: Ibrahim
+      family-names: Bakari Sani
+    - given-names: Ikram
+      family-names: Debbarh
+    - given-names: Nadia
+      family-names: Machkour
+    - given-names: Ilham
+      family-names: Battas

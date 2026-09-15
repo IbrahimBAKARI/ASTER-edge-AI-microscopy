@@ -1,0 +1,5 @@
+model,precision,recall,map50,map50_95
+exp2_multisharpness__nonone,0.65,0.3567,0.3958,0.2002
+exp4_domain_aug__nonone,0.5367,0.3626,0.3706,0.2152
+exp3_multidomain__nonone,0.5089,0.3158,0.309,0.1646
+exp4_domain_aug__2class,0.4854,0.2982,0.3058,0.1813

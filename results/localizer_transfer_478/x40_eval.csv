@@ -1,0 +1,13 @@
+subset,n_fields,model,device_used,precision,recall,map50,map50_95
+all,478,exp2_multisharpness__nonone,cpu,0.568,0.3439,0.386,0.1991
+all,478,exp4_domain_aug__nonone,cpu,0.5145,0.3477,0.3555,0.2019
+all,478,exp4_domain_aug__2class,cpu,0.4619,0.2703,0.2809,0.1613
+all,478,exp3_multidomain__nonone,cpu,0.4221,0.2868,0.273,0.139
+all,478,exp3_multidomain__2class,cpu,0.3628,0.3129,0.2707,0.1481
+all,478,exp4_domain_aug__withnone,cpu,0.4016,0.264,0.2329,0.1384
+all,478,exp3_multidomain__withnone,cpu,0.3303,0.2475,0.201,0.0992
+all,478,exp2_multisharpness__withnone,cpu,0.3711,0.1726,0.1653,0.0935
+all,478,exp2_multisharpness__2class,cpu,0.2388,0.1409,0.1194,0.0654
+all,478,exp1_baseline__2class,cpu,0.1493,0.0952,0.0553,0.0316
+all,478,exp1_baseline__nonone,cpu,0.3214,0.0457,0.0473,0.0282
+all,478,exp1_baseline__withnone,cpu,0.0872,0.0546,0.023,0.0142

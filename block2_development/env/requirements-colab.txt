@@ -1,0 +1,14 @@
+# Colab only. Deliberately NOT pinned against torch/torchvision/numpy.
+#
+# The Colab image is the environment, and it moves: as of 2026-09 it ships Python 3.14 and
+# torch 2.11+cu128. Pinning torch==2.5.1 / torchvision==0.20.1 made pip refuse the WHOLE
+# requirement set - one unresolvable line aborts the resolution, so nothing at all was
+# installed. Worse, forcing numpy or torch versions onto the image breaks CUDA.
+#
+# So: install only what the image lacks, and let `runlog` record the versions that were
+# actually used (env/pip_freeze.txt + manifest.json in every run directory).
+# Reproducibility here comes from the run record, not from a lock the platform rejects.
+
+onnx
+onnxruntime
+ultralytics

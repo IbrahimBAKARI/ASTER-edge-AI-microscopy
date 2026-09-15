@@ -1,0 +1,263 @@
+# SUPERSEDED, 2026-09-10. Written before the output vocabulary was frozen; it still
+# uses the draft level1/level2/level3 hierarchy. The authority is now:
+#   PREREGISTRATION.md section 1.2   the frozen vocabulary
+#   src/aster_block2/decision_grid.yaml  the frozen rules
+#   datasets/adapters.py             the source-label -> cell-class mapping
+# Kept for the record of how the vocabulary was reached. Do not read it as current.
+# ============================================================================
+# ASTER block 2 — label mapping  (DRAFT v0.1 — Phase 0, requires user review)
+# ----------------------------------------------------------------------------
+# Maps every source dataset's native label onto the ASTER hierarchy (MISSION §2.2).
+# Review gate #1: nothing downstream is built until the user signs this file off.
+#
+# Conventions
+#   level1 : normal_reactive | suspicious_for_neoplasm            (always required)
+#   level2 : acute_blastic | chronic_lymphoid_pattern | chronic_myeloid_pattern
+#            | null   -> the source label does not determine level 2; the bag is
+#                        MASKED for the level-2 loss (never treated as a negative)
+#   level3 : list of leaf flags; [] = no level-3 supervision from this source
+#   headline: true  -> counted in the headline v1 claims (MISSION §2.3)
+#            false -> best-effort only: trained/reported with abstention, wide CIs,
+#                     excluded from the headline metrics
+#   weight : per-sample loss weight (image-level sources without patient IDs are
+#            capped at 0.3 per guardrail #1)
+# ============================================================================
+
+version: "0.2-draft"
+date: "2026-09-10"
+status: awaiting_user_review
+
+hierarchy:
+  level1: [normal_reactive, suspicious_for_neoplasm]
+  level2: [acute_blastic, chronic_lymphoid_pattern, chronic_myeloid_pattern]
+  level3:
+    acute_blastic: [AML_like, ALL_like, lineage_uncertain, APL_flag]
+    chronic_myeloid_pattern: [CML_like]
+    chronic_lymphoid_pattern: [CLL_SLL_like, HCL_like, other_lymphoproliferative, plasma_cell_like]
+  # Flags that are NOT mutually exclusive with the leaf above them:
+  independent_flags: [APL_flag, lineage_uncertain]
+
+# ----------------------------------------------------------------------------
+sources:
+
+  # ==========================================================================
+  # cAItomorph — 409 patients / 201,560 cells / 144x144 TIF, patient-level only.
+  # HELD-OUT TEST ONLY. NEVER TRAIN, NEVER CALIBRATE ON THIS.  (guardrail #2)
+  # ==========================================================================
+  caitomorph:
+    role: test_final
+    split: test_final
+    key: diagnosis_fine
+    patient_ids: true
+    weight: 0.0            # never enters a loss
+    map:
+      "Stem cell donor":      {n: 99, level1: normal_reactive,          level2: null,                     level3: [],                      headline: true}
+      "Reactive changes":     {n: 42, level1: normal_reactive,          level2: null,                     level3: [],                      headline: true}
+      "AML":                  {n: 37, level1: suspicious_for_neoplasm,  level2: acute_blastic,            level3: [AML_like],              headline: true}
+      "ALL":                  {n:  7, level1: suspicious_for_neoplasm,  level2: acute_blastic,            level3: [ALL_like, lineage_uncertain], headline: false}  # n=7 -> wide CI
+      "AL":                   {n:  2, level1: suspicious_for_neoplasm,  level2: acute_blastic,            level3: [lineage_uncertain],     headline: false}  # acute leukemia NOS
+      "CML":                  {n:  8, level1: suspicious_for_neoplasm,  level2: chronic_myeloid_pattern,  level3: [CML_like],              headline: false}  # n=8 -> wide CI
+      "MPN":                  {n: 36, level1: suspicious_for_neoplasm,  level2: chronic_myeloid_pattern,  level3: [],                      headline: true}
+      "ET":                   {n:  3, level1: suspicious_for_neoplasm,  level2: chronic_myeloid_pattern,  level3: [],                      headline: false}
+      "PV":                   {n:  1, level1: suspicious_for_neoplasm,  level2: chronic_myeloid_pattern,  level3: [],                      headline: false}
+      "MPN / MDS-RS-T":       {n:  2, level1: suspicious_for_neoplasm,  level2: chronic_myeloid_pattern,  level3: [],                      headline: false}
+      "CMML":                 {n: 14, level1: suspicious_for_neoplasm,  level2: chronic_myeloid_pattern,  level3: [],                      headline: false}  # OPEN Q1
+      "MDS / MPN":            {n:  6, level1: suspicious_for_neoplasm,  level2: chronic_myeloid_pattern,  level3: [],                      headline: false}  # OPEN Q1
+      "MDS":                  {n: 38, level1: suspicious_for_neoplasm,  level2: null,                     level3: [],                      headline: false}  # OPEN Q2 (dysplastic, not in the 3-way)
+      "B-cell neoplasm":      {n: 53, level1: suspicious_for_neoplasm,  level2: chronic_lymphoid_pattern, level3: [other_lymphoproliferative], headline: true}
+      "HCL":                  {n:  3, level1: suspicious_for_neoplasm,  level2: chronic_lymphoid_pattern, level3: [HCL_like],              headline: false}
+      "T-cell neoplasm":      {n:  1, level1: suspicious_for_neoplasm,  level2: chronic_lymphoid_pattern, level3: [other_lymphoproliferative], headline: false}
+      "MM":                   {n: 56, level1: suspicious_for_neoplasm,  level2: null,                     level3: [],                      headline: false}  # PB often unremarkable; no train source
+      "PCL":                  {n:  1, level1: suspicious_for_neoplasm,  level2: null,                     level3: [],                      headline: false}
+
+  # ==========================================================================
+  # AML-Cytomorphology MLL Helmholtz v1 (SCEMILA) — 189 patients / 81,214 cells
+  # 144x144 TIF + per-patient WBC differential columns (population-head target).
+  # ==========================================================================
+  aml_mll:
+    role: train
+    key: bag_label
+    patient_ids: true
+    weight: 1.0
+    differential_columns: [pb_myeloblast, pb_promyelocyte, pb_myelocyte, pb_metamyelocyte,
+                           pb_neutrophil_band, pb_neutrophil_segmented, pb_eosinophil,
+                           pb_basophil, pb_monocyte, pb_lymph_typ, pb_lymph_atyp_react,
+                           pb_lymph_atyp_neopl, pb_other]
+    map:
+      "control":              {n: 60, level1: normal_reactive,         level2: null,          level3: [],                          headline: true}
+      "PML_RARA":             {n: 24, level1: suspicious_for_neoplasm, level2: acute_blastic, level3: [AML_like, APL_flag],        headline: true}
+      "NPM1":                 {n: 36, level1: suspicious_for_neoplasm, level2: acute_blastic, level3: [AML_like],                  headline: true}
+      "CBFB_MYH11":           {n: 37, level1: suspicious_for_neoplasm, level2: acute_blastic, level3: [AML_like],                  headline: true}
+      "RUNX1_RUNX1T1":        {n: 32, level1: suspicious_for_neoplasm, level2: acute_blastic, level3: [AML_like],                  headline: true}
+
+  # ==========================================================================
+  # MILLIE / APL cohort (Manescu 2023) — 106 patients / 25,724 JPEG cells,
+  # patient-level APL vs AML + Discovery/Validation cohorts + per-cell classes.
+  # THE dedicated APL-flag training source.
+  # ==========================================================================
+  millie_apl:
+    role: train
+    key: Diagnosis
+    patient_ids: true
+    weight: 1.0
+    cohort_column: Cohort           # Discovery (82) / Validation (24) -> keep Validation as an internal held-out
+    map:
+      "APL":                  {n: 34, level1: suspicious_for_neoplasm, level2: acute_blastic, level3: [AML_like, APL_flag], headline: true}
+      "AML":                  {n: 72, level1: suspicious_for_neoplasm, level2: acute_blastic, level3: [AML_like],           headline: true}
+    # NOTE: no normal_reactive patients here -> this source alone cannot teach level 1.
+    cell_labels:                     # folder name -> cell-head class (MISSION §3 cell head)
+      Blast_no_lineage_spec: blast
+      Promyelocyte: promyelocyte               # not APL-specific; APL is a bag-level context
+      Promonocyte: monocyte
+      Monocyte: monocyte
+      Lymphocyte: mature_lymphocyte
+      Lymphocyte_variant: atypical_lymphocyte
+      Prolymphocyte: atypical_lymphocyte
+      Plasma_cells: plasma_cell
+      Smudge_cells: smudge_cell
+      Segmented_neutrophils: neutrophil_segmented
+      Band_neutrophils: neutrophil_band
+      Metamyelocyte: metamyelocyte
+      Myelocyte: myelocyte
+      Eosinophils: eosinophil
+      Basophil: basophil
+      Erythroblast: erythroblast
+      Giant_thrombocyte: other
+      Thrombocyte_aggregation: other
+      Unidentified: other
+      Arifact: artefact              # [sic] in the source tree
+
+  # ==========================================================================
+  # LeukemiaAttri / LLD (MICCAI 2024) — 47 observable patient IDs, re-acquired in 11 usable
+  # domains: {H,L} microscope x {C1,C2} camera x {10X,40X,100X}.  ~26k field
+  # images 640x640 with WBC boxes + morphological attributes.
+  # ** THE ONLY LABELLED LEUKEMIC SOURCE THAT EXISTS AT x40 ** -> the bridge
+  # between the training corpus and the deployment domain.
+  # Patient id = first token of the filename; diagnosis = last token.
+  # ==========================================================================
+  leukemia_attri:
+    role: train
+    key: filename_suffix
+    patient_ids: true               # 47 patients, SHARED across the 11 domains
+    weight: 1.0
+    domains: [H_100X_C1, H_100X_C2, H_40X_C1, H_40X_C2, H_10X_C1, H_10X_C2,
+              L_100X_C1, L_100X_C2, L_40X_C1, L_40X_C2, L_10X_C2]   # L_10X_C1 is empty
+    crop_from: bbox                 # crop WBCs from the fields with block-1 geometry (+10%/side)
+    map:
+      "ALL":                  {level1: suspicious_for_neoplasm, level2: acute_blastic,            level3: [ALL_like, lineage_uncertain], headline: true}
+      "AML":                  {level1: suspicious_for_neoplasm, level2: acute_blastic,            level3: [AML_like],                    headline: true}
+      "APML":                 {level1: suspicious_for_neoplasm, level2: acute_blastic,            level3: [AML_like, APL_flag],          headline: true}
+      "CML":                  {level1: suspicious_for_neoplasm, level2: chronic_myeloid_pattern,  level3: [CML_like],                    headline: true}
+      "CLL":                  {level1: suspicious_for_neoplasm, level2: chronic_lymphoid_pattern, level3: [CLL_SLL_like],                headline: true}
+    # WARNING: no healthy/reactive patients in this source -> level-1 negatives must
+    # come from aml_mll control + PBC + Raabin.  Domain-invariance loss is essential
+    # here, otherwise "acquired at x40" becomes a shortcut for "leukemic".  OPEN Q5.
+
+  # ==========================================================================
+  # AML-Cytomorphology_LMU (Matek 2019) — 18,365 cells / 400x400 TIFF,
+  # 15 morphological classes, NO patient ids in the public release.
+  # Cell-head supervision only; never a bag, never a patient-level split.
+  # ==========================================================================
+  aml_lmu:
+    role: cell_head_train
+    key: folder
+    patient_ids: false
+    weight: 1.0                      # cell-level task, no bag leakage risk
+    level1: null                     # provides no patient-level label at all
+    cell_labels:
+      MYO: blast                     # myeloblast
+      MOB: blast                     # monoblast  (OPEN Q6: separate "monoblast" class?)
+      PMO: promyelocyte
+      PMB: abnormal_promyelocyte     # bilobed promyelocyte -> APL-type cell
+      MYB: myelocyte
+      MMZ: metamyelocyte
+      NGB: neutrophil_band
+      NGS: neutrophil_segmented
+      EOS: eosinophil
+      BAS: basophil
+      MON: monocyte
+      LYT: mature_lymphocyte
+      LYA: atypical_lymphocyte
+      KSC: smudge_cell
+      EBO: erythroblast
+      UNC: other
+
+  # ==========================================================================
+  # ALL-IDB (Scotti, Milano) — image-level, no patient structure.
+  # Guardrail #1: low-weight TRAIN only, never calibration, never test.
+  # ==========================================================================
+  all_idb2:
+    role: train_lowweight
+    key: folder
+    patient_ids: false
+    weight: 0.3
+    map:
+      "cancer":     {n: 130, level1: suspicious_for_neoplasm, level2: acute_blastic, level3: [ALL_like, lineage_uncertain], headline: false}
+      "non cancer": {n: 130, level1: normal_reactive,         level2: null,          level3: [],                            headline: false}
+  all_idb1:
+    role: quarantine                 # local copy is 150 mixed-size images; provenance needs review
+    key: folder
+    patient_ids: false
+    weight: 0.0
+    note: "Local L1/L2/L3 folders contain 50 images each, including 257x257 crops; do not use until reconciled with the signed source release. OPEN Q7"
+
+  # ==========================================================================
+  # Taleqani hospital ALL (Kaggle/Mendeley, Ghaderzadeh 2021) — 3,260 cells,
+  # 4 classes, flow-cytometry confirmed, no patient ids in the release.
+  # ==========================================================================
+  taleqani_all:
+    role: train_lowweight
+    key: folder
+    patient_ids: false
+    weight: 0.3
+    map:
+      "Benign": {level1: normal_reactive,         level2: null,          level3: [],                            headline: false}
+      "Early":  {level1: suspicious_for_neoplasm, level2: acute_blastic, level3: [ALL_like, lineage_uncertain], headline: false}
+      "Pre":    {level1: suspicious_for_neoplasm, level2: acute_blastic, level3: [ALL_like, lineage_uncertain], headline: false}
+      "Pro":    {level1: suspicious_for_neoplasm, level2: acute_blastic, level3: [ALL_like, lineage_uncertain], headline: false}
+    cell_labels: {Benign: mature_lymphocyte, Early: blast, Pre: blast, Pro: blast}   # OPEN Q8
+
+  # ==========================================================================
+  # ASTER x40 prototype — 478 fields 4032x3040, non-leukemic educational slides.
+  # UNLABELLED for leukemia.  SSL corpus + OOD reference + stress test ONLY.
+  # Guardrail #4: never a supervised leukemia class.
+  # ==========================================================================
+  aster_x40:
+    role: ssl_and_ood_reference
+    split: stress_ood
+    patient_ids: false               # slide-adjacency clusters instead (>90 s gap, seed 42)
+    weight: 0.0
+    expected_output: "out_of_domain OR level1=normal_reactive with abstention at level 2/3"
+
+  # ==========================================================================
+  # To fetch (MISSION §4.2) — placeholders, filled once downloaded
+  # ==========================================================================
+  pbc_acevedo:      {role: cell_head_train, status: missing_local, brings: "17,092 normal PB cells, CellaVision DM96 — normal-morphology + scanner-diversity anchor"}
+  raabin_wbc:       {role: train, status: missing_local, brings: "~40k WBC, 2 cameras x 2 microscopes x 2 labs — the domain-diversity anchor; CLL cases"}
+  bone_marrow_mll:  {role: excluded_from_v1, status: missing_local, brings: "Optional isolated SSL ablation only; bone marrow is not part of the peripheral-blood target domain"}
+  c_nmc_2019:       {role: train, status: missing_local, brings: "15,135 B-ALL cells / 118 subjects — the ALL patient-level data we lack"}
+
+# ----------------------------------------------------------------------------
+# OPEN QUESTIONS FOR THE USER  (each changes what the model is trained to say)
+# ----------------------------------------------------------------------------
+open_questions:
+  Q1: "CMML (14) + MDS/MPN (6): morphologically monocytosis + dysplasia. Fold into
+       chronic_myeloid_pattern (current draft), or give MDS/MPN its own level-2 leaf,
+       or mask at level 2 like MDS?"
+  Q2: "MDS (38 patients, the 4th-largest cAItomorph class) has no home in the 3-way
+       level 2. Options: (a) mask at level 2 — level 1 only [draft], (b) add a 4th
+       level-2 class 'dysplastic_pattern', (c) exclude from the headline test cohort.
+       (b) is defensible morphologically and uses 38+14+6 = 58 patients."
+  Q3: "MM + PCL are masked at level 2 in this draft: PB is often unremarkable in MM and
+       no training source supports a plasma-pattern head. Confirm mask vs future own leaf."
+  Q4: "MILLIE 'Promyelocyte' is mapped to generic promyelocyte for every patient; the
+       APL flag is learned from bag context plus LMU PMB/other APL evidence. Confirm."
+  Q5: "LeukemiaAttri has zero non-leukemic patients and is the only x40-labelled source.
+       Confirm the domain-invariance + source-balanced sampling plan before training,
+       or the model learns 'x40 => leukemia' — exactly the current failure mode."
+  Q6: "Cell-head granularity: merge monoblast into 'blast' [draft] or keep separate?"
+  Q7: "ALL-IDB1 L1/L2/L3 folders: field subsets or FAB subtypes? Needs a look at the
+       source agreement before any use."
+  Q8: "Taleqani Early/Pre/Pro are ALL maturation stages: all -> 'blast' at cell level [draft]?"
+  Q9: "v1 headline scope (MISSION §2.3): confirm level 1 + level 2 + APL_flag +
+       chronic-lymphoid-vs-myeloid, everything else best-effort with abstention."

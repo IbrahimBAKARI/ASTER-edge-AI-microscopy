@@ -1,0 +1,42 @@
+{
+  "started": "2026-09-12T11:54:36.830155+00:00",
+  "mode": "timing",
+  "fields": [
+    "fields/benchmark_allidb_L2/Im001_1.jpg",
+    "fields/benchmark_allidb_L2/Im003_1.jpg",
+    "fields/benchmark_allidb_L2/Im003_2.jpg",
+    "fields/benchmark_allidb_L2/Im003_4.jpg",
+    "fields/benchmark_allidb_L2/Im003_6.jpg",
+    "fields/benchmark_allidb_L2/Im003_9.jpg",
+    "fields/benchmark_allidb_L2/Im004_1.jpg",
+    "fields/benchmark_allidb_L2/Im009_1.jpg",
+    "fields/benchmark_allidb_L2/Im012_1.jpg"
+  ],
+  "fields_excluded": [],
+  "fields_sha256": "0f4b8bac05111976069b8cc956a7a7e04de3b64d211300290752808537bcc9d0",
+  "block1_weights": "<REPO>/models/yolo/wbc_detector.pt",
+  "block2_backend": "tensorrt",
+  "block2_engine": {
+    "engine": "encoder_fp16.engine",
+    "precision": "fp16",
+    "static_batch": 8,
+    "input": "images",
+    "input_shape": [
+      8,
+      3,
+      224,
+      224
+    ],
+    "tensorrt": "10.3.0",
+    "l4t": "# R36 (release), REVISION: 4.7, GCID: 42132812, BOARD: generic, EABI: aarch64, DATE: Thu Sep 18 22:54:44 UTC 2025",
+    "sha256": "0ba325685c4f991a9095601949506c3019ecfec9fbbe63d6b96fb847c8b63c20"
+  },
+  "kit_run_id": "20260911_051357Z",
+  "device": "cuda",
+  "python": "3.10.12",
+  "torch": "2.8.0",
+  "l4t": "# R36 (release), REVISION: 4.7, GCID: 42132812, BOARD: generic, EABI: aarch64, DATE: Thu Sep 18 22:54:44 UTC 2025",
+  "nvpmodel": "NV Power Mode: MAXN_SUPER\n2",
+  "jetson_clocks": "SOC family:tegra234  Machine:NVIDIA Jetson Orin Nano Engineering Reference Developer Kit Super\nError: Run this script(/usr/bin/jetson_clocks) as a root user",
+  "declaration": "technical benchmark on a fixed field set, not a clinical session"
+}

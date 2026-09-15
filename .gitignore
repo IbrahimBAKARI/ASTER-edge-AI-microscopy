@@ -1,0 +1,39 @@
+# virtualenv / caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# pipeline run outputs (regenerated)
+results_sessions/
+outputs/
+
+# device-specific TensorRT engines — always rebuilt on the target (scripts/export_*_trt.sh)
+*.engine
+models/**/*.engine
+models/**/ENGINE_SHA256SUMS.txt
+
+# local benchmark scratch
+config/_*.yaml
+benchmarks/
+/tmp_*/
+# benchmark_current_pipeline.py / benchmark_energy.py working dirs: re-copied
+# input images (some from external, non-redistributed datasets, see docs/DATA.md)
+# and per-run annotated overlays/crops -- reproducible, never the results themselves.
+results/**/_fixed_inputs/
+results/**/_validation/
+results/**/_run_workspace/
+
+# data that is not distributed with this repository (see docs/DATA.md)
+external_data/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Interface: full-resolution capture scratch (session images live here until saved)
+Interface/_capture_cache/
+
+# block-2 device kit assembled by block2_development/jetson/make_kit_from_repo.sh
+block2_development/jetson/kit/

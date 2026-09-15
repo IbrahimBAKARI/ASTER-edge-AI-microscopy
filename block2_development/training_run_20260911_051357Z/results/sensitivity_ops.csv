@@ -1,0 +1,7 @@
+parameter,value,non_leuk_donors,spec_donors,spec_reactive,sens_acute,indeterminate,chronic_calls,chronic_on_donors,chronic_on_CML_or_B,APL_flags
+gamma,0.8,31/99,0.919,0.929,23/46,0.423,0,0,0,0
+gamma,0.9,29/99,0.96,0.929,22/46,0.445,0,0,0,0
+gamma,0.95,27/99,0.97,0.929,21/46,0.472,0,0,0,0
+reference_percentile,97.5,29/99,0.96,0.929,22/46,0.445,0,0,0,0
+reference_percentile,99.0,29/99,0.96,0.929,22/46,0.445,0,0,0,0
+reference_percentile,99.5,29/99,0.96,0.929,22/46,0.445,0,0,0,0

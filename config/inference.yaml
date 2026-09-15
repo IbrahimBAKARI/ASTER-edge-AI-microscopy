@@ -1,0 +1,61 @@
+workspace_root: ..
+
+yolo:
+  # YOLO11n single-class WBC localiser, mixed-replay fine-tuned to the x40
+  # dry-objective domain. Held-out x40 test (104 fields): P 0.92 / R 0.96 / mAP50 0.96.
+  weights: models/yolo/wbc_detector.pt
+  # FP16 engine must be (re)built at imgsz 960 on the Jetson:
+  #   scripts/export_yolo_trt.sh    -> models/yolo/wbc_detector.engine
+  # Missing -> the pipeline logs a warning and runs the .pt on CUDA/CPU.
+  tensorrt_weights: models/yolo/wbc_detector.engine
+  # conf/iou selected by max mean-F1 on the x40 VALIDATION split (43 fields),
+  # imgsz 960, NMS IoU sweep {0.50, 0.60, 0.70} -> 0.50 wins (ties with 0.60).
+  # See results/x40_threshold/selection.json.
+  confidence: 0.18
+  iou: 0.50
+  # 960 = the fine-tuning resolution. 640 loses recall on x40.
+  image_size: 960
+  padding: 0.10
+  class_id: 0
+
+block2:
+  # Block 2: one ResNet18 encoder pass per unique crop -> 16-class cell head ->
+  # ACC-corrected population proportions -> gated-attention MIL screening score
+  # P_abn -> frozen decision grid (three-way Jeffreys test, gamma 0.90, tiers
+  # 100/200/400 classified leukocytes) -> Mahalanobis OOD gate. See
+  # docs/ARCHITECTURE_CONTRACT.md and block2_development/PREREGISTRATION.md
+  # for the frozen grid this must not
+  # deviate from without a dated amendment.
+  encoder: models/mil/encoder.onnx       # TensorRT engine built on this Jetson,
+                                          # next to this file (encoder_fp16.engine)
+  heads: models/mil/heads.pt             # cell head + gated-attention MIL, PyTorch, tiny
+  grid: models/mil/decision_grid.yaml    # frozen grid
+  thresholds: models/mil/thresholds.json # resolved [REF]/[FIT] values
+  ood_stats: models/mil/ood_stats.npz
+  quantifier: models/mil/quantifier.json # Adjusted Classify-and-Count rates
+  image_size: 224                           # unchanged crop->tensor contract
+  embedding_size: 512
+  encode_chunk: 64
+  bag_size: 200                             # MIL attention bag (kit/models/config.json)
+  min_classified_cells_screening: 100       # [STD] routine manual differential
+  min_classified_cells_pattern: 200         # [STD] diagnostic differential (EHA/ELN)
+  min_classified_cells_reference: 400       # [STD] CLSI H20-A2
+  gamma: 0.90
+  seed: 42
+
+image_extensions: [.png, .jpg, .jpeg, .tif, .tiff, .bmp, .webp]
+save_crops: true
+
+output:
+  # Annotated overlay: a non-authoritative visualisation, safe to store lossy.
+  # Full-field PNG zlib-6 overlays were the ~10.5 s output_persistence_ms cost.
+  annotated_format: jpeg          # jpeg | png
+  annotated_jpeg_quality: 92
+  # Retained crop evidence: PNG stays pixel-lossless at any compress level;
+  # level 1 keeps identical pixels at ~5x faster encoding for a ~20% larger file.
+  crop_format: png                # png | jpeg
+  crop_png_compress_level: 1      # 0-9
+  crop_jpeg_quality: 95
+  # true -> force annotated + crops to fully lossless PNG (compress level 6),
+  # for a reproducibility archive that keeps every pixel of every product.
+  lossless_archival: false

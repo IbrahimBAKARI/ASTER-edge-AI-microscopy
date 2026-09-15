@@ -1,0 +1,111 @@
+{
+  "protocol": {
+    "mode_order": [
+      "idle",
+      "acquisition",
+      "full_analysis"
+    ],
+    "requested_duration_per_mode_s": 300.0,
+    "tegrastats_interval_ms": 1000,
+    "stabilization_between_modes_s": 30.0,
+    "initial_stabilization_s": 30.0,
+    "power_rail": "VDD_IN",
+    "camera_index": 0,
+    "camera_resolution": [
+      1280,
+      720
+    ],
+    "camera_requested_fps": 30.0,
+    "full_pipeline_warmup_runs": 5
+  },
+  "modes": {
+    "idle": {
+      "duration_from_samples_s": 298.0601079463959,
+      "power_rail": "VDD_IN",
+      "power_mean_w": 5.225340067340069,
+      "power_std_w": 0.020397954090460295,
+      "power_median_w": 5.237,
+      "power_max_w": 5.317,
+      "total_energy_j": 1557.4529344757798,
+      "completed_units": 0,
+      "unit_name": "none",
+      "gross_energy_per_unit_j": null,
+      "gpu_temperature_max_c": 53.25,
+      "cpu_temperature_max_c": 52.875,
+      "ram_max_mb": 2767,
+      "sample_count": 297,
+      "mode": "idle",
+      "wall_duration_s": 300.0017187560006,
+      "created_at": "2026-09-12T13:20:32.900336+01:00"
+    },
+    "acquisition": {
+      "duration_from_samples_s": 298.90848541259766,
+      "power_rail": "VDD_IN",
+      "power_mean_w": 5.676305369127517,
+      "power_std_w": 0.02635149683067011,
+      "power_median_w": 5.665,
+      "power_max_w": 6.021,
+      "total_energy_j": 1696.687022086978,
+      "completed_units": 30461,
+      "unit_name": "frame",
+      "gross_energy_per_unit_j": 0.05570030603351755,
+      "gpu_temperature_max_c": 51.718,
+      "cpu_temperature_max_c": 51.843,
+      "ram_max_mb": 2766,
+      "sample_count": 298,
+      "mode": "acquisition",
+      "wall_duration_s": 300.0050536180006,
+      "created_at": "2026-09-12T13:26:08.185407+01:00"
+    },
+    "full_analysis": {
+      "duration_from_samples_s": 299.880708694458,
+      "power_rail": "VDD_IN",
+      "power_mean_w": 7.703357859531772,
+      "power_std_w": 0.5468785698530622,
+      "power_median_w": 7.7,
+      "power_max_w": 8.752,
+      "total_energy_j": 2310.3788329620365,
+      "completed_units": 162,
+      "unit_name": "analysis",
+      "gross_energy_per_unit_j": 14.26159773433356,
+      "gpu_temperature_max_c": 54.937,
+      "cpu_temperature_max_c": 55.187,
+      "ram_max_mb": 2971,
+      "sample_count": 299,
+      "analyses": 162,
+      "analysis_wall_total_s": 301.5503236780023,
+      "analysis_wall_mean_s": 1.8614217510987796,
+      "artifact_flush_s": 0.09222901700013608,
+      "mode": "full_analysis",
+      "wall_duration_s": 301.64479019100054,
+      "created_at": "2026-09-12T13:31:39.925029+01:00"
+    }
+  },
+  "incremental_power_w": {
+    "acquisition_minus_idle": 0.4509653017874484,
+    "full_analysis_minus_idle": 2.4780177921917037
+  },
+  "duty_cycle_reconciliation": {
+    "analyses": 162,
+    "analysis_wall_mean_s": 1.8614217510987796,
+    "active_wall_total_s": 301.5503236780023,
+    "mode_wall_s": 301.64479019100054,
+    "active_fraction": 0.9996868286273454,
+    "idle_gap_total_s": 0.09446651299822406,
+    "artifact_flush_s": 0.09222901700013608,
+    "idle_power_mean_w": 5.225340067340069,
+    "full_analysis_power_mean_w": 7.703357859531772,
+    "net_power_w": 2.4780177921917037,
+    "gross_energy_per_analysis_j": 14.26159773433356,
+    "net_energy_per_analysis_j": 4.612636217995413,
+    "note": "A near-1.0 active_fraction means the corrected pipeline is compute-bound, not I/O-bound; the mean power then reflects the real analysis cost."
+  },
+  "clock_state": {
+    "nvpmodel": "NV Power Mode: MAXN_SUPER\n2",
+    "jetson_clocks_show": "SOC family:tegra234  Machine:NVIDIA Jetson Orin Nano Engineering Reference Developer Kit Super\nError: Run this script(/usr/bin/jetson_clocks) as a root user",
+    "cpu_governors": "schedutil",
+    "clocks_pinned": null,
+    "declaration": "clock state undetermined (jetson_clocks --show needs root; no saved dump)"
+  },
+  "note": "All three modes were remeasured in one execution using the same target, power rail, sampling interval, and requested duration."
+}

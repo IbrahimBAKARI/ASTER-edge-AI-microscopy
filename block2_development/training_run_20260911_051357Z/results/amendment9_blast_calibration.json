@@ -1,0 +1,36 @@
+{
+  "calibration": {
+    "intercept": 0.1326796978831235,
+    "slope": 0.623629503843072,
+    "var_intercept": 5.124206907422494e-05,
+    "var_slope": 0.0003961884785665128,
+    "covariance": -8.723712598871916e-05,
+    "dispersion": 24.83733591805282,
+    "n_patients": 189,
+    "diagnostics": {
+      "slope_ci95": [
+        0.583395377118941,
+        0.6604722918661562
+      ],
+      "intercept_ci95": [
+        0.11930592969841534,
+        0.1474077236868701
+      ],
+      "dispersion_per_stratum": {
+        "aml": 24.83733591805282,
+        "control": 9.247377832752901
+      },
+      "observed_median_per_stratum": {
+        "aml": 0.48588709677419356,
+        "control": 0.11919845878833346
+      },
+      "n_per_stratum": {
+        "aml": 129,
+        "control": 60
+      },
+      "bootstrap": 2000,
+      "reliability_ratio": 0.9900815382856232
+    }
+  },
+  "usable": true
+}

@@ -1,0 +1,90 @@
+{
+  "session_id": "leukemiaattri_APL_heldout",
+  "status": "out_of_domain",
+  "label": "out_of_domain",
+  "tier": "none",
+  "final_calibrated_probability": 0.987583105448624,
+  "flags": [],
+  "reasons": [
+    "OOD score 1386.25 above the in-domain threshold 576.11"
+  ],
+  "population_profile": {
+    "myeloblast": 0.6650246305418719,
+    "lymphoblast": 0.04433497536945813,
+    "promyelocyte": 0.0,
+    "promyelocyte_abnormal": 0.04926108374384237,
+    "myelocyte": 0.12807881773399016,
+    "metamyelocyte": 0.0049261083743842365,
+    "band_neutrophil": 0.0,
+    "segmented_neutrophil": 0.054187192118226604,
+    "basophil": 0.0,
+    "eosinophil": 0.009852216748768473,
+    "monocyte": 0.03940886699507389,
+    "lymphocyte": 0.0049261083743842365,
+    "lymphocyte_atypical": 0.0,
+    "smudge_cell": 0.0,
+    "erythroblast": 0.0,
+    "other_artifact": 0.0
+  },
+  "quantities": {
+    "blast_frac": 0.7586206896551724,
+    "ig_frac": 0.1330049261083744,
+    "baso_frac": 0.0,
+    "lymph_frac": 0.0049261083743842365,
+    "smudge_frac": 0.0,
+    "atypical_frac": 0.0,
+    "mono_frac": 0.03940886699507389,
+    "abn_promy_frac": 0.04926108374384237,
+    "myeloblast_frac": 0.6650246305418719,
+    "myelocyte_frac": 0.12807881773399016,
+    "metamyelocyte_frac": 0.0049261083743842365
+  },
+  "verdicts": {},
+  "uncertainty": {
+    "p_abn_raw": 0.7491437196731567,
+    "p_abn": 0.987583105448624,
+    "ood_score": 1386.2452098822155,
+    "ood_threshold": 576.1117745962939
+  },
+  "evidence": {
+    "top_attended": [
+      91,
+      73,
+      167,
+      149,
+      82,
+      70,
+      85,
+      88,
+      56,
+      30
+    ],
+    "attention_weights": [
+      0.031325604766607285,
+      0.019376568496227264,
+      0.01663828268647194,
+      0.015631910413503647,
+      0.014986827038228512,
+      0.014381859451532364,
+      0.012762815691530704,
+      0.011225518770515919,
+      0.011169591918587685,
+      0.010974356904625893
+    ]
+  },
+  "number_of_fields": 60,
+  "number_of_detected_wbc": 203,
+  "number_of_classified_leukocytes": 203,
+  "device": "cpu",
+  "inference_backend": "pytorch",
+  "grid_sha256": "bd88c4b83d47d87188f2ef6e540a6d971f8c95c0e0e7665ebe2f274b3809efd2",
+  "warnings": [],
+  "timing_ms": {
+    "image_loading": 0.729,
+    "yolo": 12369.943,
+    "crop_preparation": 167.248,
+    "mil": 8707.903,
+    "total": 21246.476
+  },
+  "final_label": "no_decision"
+}

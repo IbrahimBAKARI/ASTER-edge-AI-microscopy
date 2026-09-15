@@ -1,0 +1,6 @@
+# Mac side, corpus preparation only. Deliberately NOT -r requirements-common.txt:
+# datasets/prepare_corpus.py needs Pillow and nothing else, and the Mac has no torch.
+# Versions match requirements-common.txt where they overlap.
+Pillow==11.0.0
+PyYAML==6.0.2
+tqdm==4.67.1

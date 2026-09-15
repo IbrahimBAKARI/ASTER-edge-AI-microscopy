@@ -1,0 +1,74 @@
+{
+ "exp1_baseline|withnone|lld_test": {
+  "precision": 0.8740395104058929,
+  "recall": 0.9267886855241264,
+  "map50": 0.9144034676602862,
+  "map5095": 0.5397337146993797
+ },
+ "exp1_baseline|nonone|lld_test": {
+  "precision": 0.8885872500382849,
+  "recall": 0.9488483952740161,
+  "map50": 0.9239658067894181,
+  "map5095": 0.5351518266061909
+ },
+ "exp1_baseline|2class|lld_test": {
+  "precision": 0.8933808034076813,
+  "recall": 0.9480597843297738,
+  "map50": 0.9292515686865543,
+  "map5095": 0.5517587614498598
+ },
+ "exp2_multisharpness|withnone|lld_test": {
+  "precision": 0.8707554420744004,
+  "recall": 0.929406267379469,
+  "map50": 0.9176083520583533,
+  "map5095": 0.4965489997200675
+ },
+ "exp2_multisharpness|nonone|lld_test": {
+  "precision": 0.8728594276581659,
+  "recall": 0.9027205276174773,
+  "map50": 0.9171972543208151,
+  "map5095": 0.4834219395571894
+ },
+ "exp2_multisharpness|2class|lld_test": {
+  "precision": 0.8864276841370617,
+  "recall": 0.9394266850842101,
+  "map50": 0.9261039989438797,
+  "map5095": 0.503468007496515
+ },
+ "exp3_multidomain|withnone|lld_test": {
+  "precision": 0.8877915550138673,
+  "recall": 0.9564594444002229,
+  "map50": 0.929601613443359,
+  "map5095": 0.5361715226596498
+ },
+ "exp3_multidomain|nonone|lld_test": {
+  "precision": 0.908578642166784,
+  "recall": 0.9484199633845419,
+  "map50": 0.9367643946950653,
+  "map5095": 0.5273879820577518
+ },
+ "exp3_multidomain|2class|lld_test": {
+  "precision": 0.8957789012272747,
+  "recall": 0.9523378765847604,
+  "map50": 0.9333449573159197,
+  "map5095": 0.5189720128889459
+ },
+ "exp4_domain_aug|withnone|lld_test": {
+  "precision": 0.8758023787546061,
+  "recall": 0.955903673943527,
+  "map50": 0.9284711971874371,
+  "map5095": 0.5285145751402196
+ },
+ "exp4_domain_aug|nonone|lld_test": {
+  "precision": 0.9028203203651523,
+  "recall": 0.9509845728170467,
+  "map50": 0.9343251302258101,
+  "map5095": 0.5215067348600892
+ },
+ "exp4_domain_aug|2class|lld_test": {
+  "precision": 0.9093576785528614,
+  "recall": 0.9434052376024835,
+  "map50": 0.9386085894744707,
+  "map5095": 0.5199728437572912
+ }
+}

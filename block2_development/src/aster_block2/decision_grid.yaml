@@ -1,0 +1,205 @@
+# ASTER block 2 — machine-readable decision grid
+# Rationale, provenance and evaluation plan: ../../PREREGISTRATION.md (v2.0).
+# This file is the executable form of PREREGISTRATION.md §3 and §4; the two must agree.
+#
+# provenance tags
+#   WHO  : WHO/ICC classification criterion — never varied
+#   STD  : documented manual-cytology counting standard (CLSI H20-A2, EHA/ELN) — never varied
+#   CONV : conventional adult peripheral-blood reference value — never varied
+#   REF  : max(clinical floor, 99th percentile of the reference/control population)
+#          computed on control patients only, never on a case, never on the test set
+#   FIT  : fitted on the development split (disjoint from model training AND from test)
+#   OPS  : residual discretionary choice — sensitivity-analysed, reported either way
+#
+# Values written as REF or FIT are placeholders resolved at Phase 1 from development
+# and control data only, then written back here as a dated amendment (see
+# PREREGISTRATION.md section 7). Nothing is ever resolved from cAItomorph.
+
+version: "2.0"
+date: "2026-09-10"
+status: frozen
+frozen_on: "2026-09-10"
+hashes: results/PREREGISTRATION.sha256
+
+# ---------------------------------------------------------------------------
+# Cell classes. other_artifact is excluded from N_c.
+# ---------------------------------------------------------------------------
+cell_classes:
+  - myeloblast
+  - lymphoblast
+  - promyelocyte
+  - promyelocyte_abnormal
+  - myelocyte
+  - metamyelocyte
+  - band_neutrophil
+  - segmented_neutrophil
+  - basophil
+  - eosinophil
+  - monocyte
+  - lymphocyte
+  - lymphocyte_atypical
+  - smudge_cell
+  - erythroblast
+  - other_artifact
+
+quantities:
+  blast_frac:     [myeloblast, lymphoblast, promyelocyte_abnormal]
+  ig_frac:        [promyelocyte, myelocyte, metamyelocyte]
+  baso_frac:      [basophil]
+  lymph_frac:     [lymphocyte]
+  smudge_frac:    [smudge_cell]
+  atypical_frac:  [lymphocyte_atypical]
+  mono_frac:      [monocyte]
+  abn_promy_frac: [promyelocyte_abnormal]
+  myeloblast_frac: [myeloblast]
+  myelocyte_frac:  [myelocyte]
+  metamyelocyte_frac: [metamyelocyte]
+  # lineage_post and P_abn are model outputs, not count ratios
+
+# ---------------------------------------------------------------------------
+# Three-way test: src/aster_block2/proportion_test.py
+#   ASSERT if P(p >= theta | k, n) >= gamma ; REJECT if P(p < theta) >= gamma ;
+#   else INDETERMINATE.  A rule fires only if every criterion ASSERTs.
+# ---------------------------------------------------------------------------
+inference:
+  posterior: jeffreys          # Beta(k + 1/2, n - k + 1/2)
+  gamma: {value: 0.90, tag: OPS, sensitivity: [0.80, 0.95]}
+
+# Claim tiers. The session sizes are the documented counting standards of manual
+# cytology, not ASTER choices (PREREGISTRATION.md §1.1 and §8).
+tiers:
+  none:
+    max_classified_cells: 100
+    tag: STD
+    basis: "below any recognised counting standard"
+    emits: [insufficient_evidence]
+  screening:
+    min_classified_cells: {value: 100, tag: STD, basis: "routine manual differential"}
+    emits: [non_leukemic, suspicious_for_neoplasm, bag_differential]
+    source: mil_head_only
+  pattern:
+    min_classified_cells: {value: 200, tag: STD,
+                           basis: "diagnostic manual PB differential = 200 nucleated leukocytes (EHA/ELN); the WHO 20% blast criterion is applied to that count"}
+    emits: all_pattern_labels
+  reference:
+    min_classified_cells: {value: 400, tag: STD,
+                           basis: "CLSI H20-A2 reference method, 400 cells (200 x 2 slides, 2 observers)"}
+    emits: reference_count_annotation
+    caveat: "only the count is equivalent; the two-slide/two-observer replication is not reproduced"
+
+reference_interval:
+  percentile: {value: 99, tag: OPS, sensitivity: [97.5, 99.5]}
+  population: [aml_mll_controls_dev_fit, aml_mll_controls_dev_cal]
+  # amendment 1b: PBC has no patient identifiers and the reference intervals are
+  # per-patient proportions, so PBC trains the cell head but takes no part here.
+  report_alongside: [clinical_floor, empirical_percentile, n_reference_patients, adopted]
+  policy: "threshold = max(clinical_floor, percentile_of_reference)"
+
+# ---------------------------------------------------------------------------
+# Rules, evaluated in order; first match wins.
+# ---------------------------------------------------------------------------
+rules:
+
+  - id: R0_gates
+    gates:
+      min_classified_cells: {value: 100, tag: STD, status: insufficient_evidence,
+                             basis: "below the routine manual differential"}
+      ood_mahalanobis:     {value: FIT, tag: FIT,  status: out_of_domain,
+                            fit_on: in_domain_dev_bags, criterion: "99% in-domain pass rate"}
+      min_classified_frac: {value: FIT, tag: FIT,  status: indeterminate,
+                            fit_on: [dev_sessions, x40_sessions],
+                            criterion: "1st percentile of the dev distribution"}
+      below_pattern_tier:  {status: screening_statement_only}
+
+  - id: R1_acute_blastic
+    requires_tier: pattern
+    criteria:
+      - {quantity: blast_frac, op: ">=", value: 0.20, tag: WHO}
+    subrules:
+
+      - id: R1a_apl
+        criteria:
+          - {quantity: abn_promy_frac, op: ">=", value: FIT, tag: FIT,
+             fit_on: "24 PML_RARA vs 105 other AML (dev)",
+             criterion: "specificity >= 0.95 among AML"}
+          - {expr: "abn_promy_frac > myeloblast_frac", tag: OPS}
+        label: acute_blastic__myeloid_oriented
+        flags: [APL_suspicion]
+
+      - id: R1b_lineage
+        bands:
+          - {quantity: lineage_post, op: ">=", value: FIT, tag: FIT,
+             fit_on: "cell-level pseudo-bags (ALL crops vs LMU myeloblasts)",
+             criterion: "equal error rate",
+             label: acute_blastic__lymphoid_oriented}
+          - {quantity: lineage_post, op: "<=", value: FIT, tag: FIT,
+             label: acute_blastic__myeloid_oriented}
+          - {default: true, label: acute_blastic__lineage_indeterminate}
+
+  - id: R2_chronic_myeloid
+    requires_tier: pattern
+    requires_rejected: [R1_acute_blastic]
+    criteria:
+      - {quantity: ig_frac,   op: ">=", value: REF, tag: REF, clinical_floor: 0.10,
+         note: "CML left shift; floor deliberately permissive, real CML often 20-30%"}
+      - {quantity: baso_frac, op: ">=", value: REF, tag: REF, clinical_floor: 0.02,
+         note: "basophilia is a near-constant feature of CML [CONV floor]"}
+    exclusions:
+      - {all_of: [{quantity: mono_frac, op: ">=", value: 0.10, tag: WHO},
+                  {quantity: ig_frac,   op: "<",  value: 0.10, tag: OPS}],
+         note: "CMML exclusion"}
+    label: chronic_myeloid_pattern
+    recorded_not_used:
+      - {expr: "myelocyte_frac > metamyelocyte_frac", note: "myelocyte bulge; post-hoc only"}
+
+  - id: R3_chronic_lymphoid
+    requires_tier: pattern
+    requires_rejected: [R1_acute_blastic]
+    criteria:
+      - {quantity: lymph_frac,  op: ">=", value: REF, tag: REF, clinical_floor: 0.50,
+         note: "adult reference 20-45% [CONV]; real CLL often 70-95%"}
+      - {quantity: smudge_frac, op: ">=", value: REF, tag: REF, clinical_floor: 0.02,
+         note: "Gumprecht cells; weakest class, 15 training cells"}
+    exclusions:
+      - {all_of: [{quantity: atypical_frac, op: ">=", value: REF, tag: REF},
+                  {quantity: smudge_frac,   op: "<",  value: REF, tag: REF}],
+         note: "reactive lymphocytosis exclusion — the 42 Reactive patients are the test"}
+    label: chronic_lymphoid_pattern
+
+  - id: R4_non_leukemic
+    requires_tier: pattern
+    criteria:
+      - {quantity: blast_frac, op: "<",  value: 0.05, tag: CONV}
+      - {quantity: ig_frac,    op: "<",  value: 0.02, tag: CONV}
+      - {quantity: lymph_frac, op: "<=", value: 0.50, tag: CONV}
+      - {quantity: P_abn,      op: "<",  value: FIT,  tag: FIT,
+         fit_on: dev_calibration_split,
+         criterion: "operating point at specificity >= 0.95"}
+    label: non_leukemic
+
+  - id: R5_fallback
+    default: true
+    label: indeterminate
+
+# ---------------------------------------------------------------------------
+# Observation flags: attached to any label, never emitted alone.
+# ---------------------------------------------------------------------------
+flags:
+  monocytic_predominance:
+    criteria: [{quantity: mono_frac, op: ">=", value: 0.10, tag: WHO}]
+  reactive_lymphoid_observation:
+    criteria: [{quantity: atypical_frac, op: ">=", value: REF, tag: REF}]
+  nucleated_rbc_present:
+    criteria: [{quantity: erythroblast_count, op: ">=", value: 1, tag: CONV}]
+
+# ---------------------------------------------------------------------------
+# The MIL head is trained on AML vs control only. It may assert in R1 and R4
+# exclusively; for chronic sessions it is recorded and reported but never used.
+# PREREGISTRATION.md §4.1
+# ---------------------------------------------------------------------------
+p_abn_scope: [R1_acute_blastic, R4_non_leukemic]
+
+sensitivity_analysis:
+  applies_to_tag: OPS
+  reported: always
+  note: "a grid that only works at its frozen values is a fitted grid, and is reported as such"

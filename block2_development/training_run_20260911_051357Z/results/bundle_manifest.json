@@ -1,0 +1,24 @@
+{
+  "cell_classes": [
+    "myeloblast",
+    "lymphoblast",
+    "promyelocyte",
+    "promyelocyte_abnormal",
+    "myelocyte",
+    "metamyelocyte",
+    "band_neutrophil",
+    "segmented_neutrophil",
+    "basophil",
+    "eosinophil",
+    "monocyte",
+    "lymphocyte",
+    "lymphocyte_atypical",
+    "smudge_cell",
+    "erythroblast",
+    "other_artifact"
+  ],
+  "bag_size": 200,
+  "image_size": 224,
+  "grid_sha256_at_freeze": "e55ee9fe24c44085e9c5b86122d8c8a693e6258c87c212f506af91394ad933b1",
+  "run_id": "20260911_051357Z"
+}

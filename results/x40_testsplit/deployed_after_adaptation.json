@@ -1,0 +1,31 @@
+{
+  "description": "Deployed localizer (after mixed-replay adaptation) on the 104 held-out prototype test fields (171 boxes). Re-computed for this release with the Ultralytics validator to document the conf-0.001 mAP@50 of the adapted model; the operating-point row reproduces results/x40_threshold/selection.json (test_at_selected_point) exactly.",
+  "weights": "models/yolo/wbc_detector.pt",
+  "weights_sha256": "5253be6be234b956fa0da9af575949b155b9e47917fb79301d5cb62f8a2d39a1",
+  "split": "prototype test split (localizer_adaptation/x40_SPLIT.md, data_splits/prototype_fields_split.csv)",
+  "imgsz": 960,
+  "nms_iou": 0.5,
+  "classes": [
+    0
+  ],
+  "device": "cpu",
+  "software": {
+    "ultralytics": "8.4.150",
+    "torch": "2.14.0"
+  },
+  "date": "2026-09-13",
+  "results": {
+    "conf_0.001": {
+      "precision": 0.9211,
+      "recall": 0.9556,
+      "map50": 0.9823,
+      "map50_95": 0.6598
+    },
+    "conf_0.1812_operating_point": {
+      "precision": 0.9211,
+      "recall": 0.9556,
+      "map50": 0.9565,
+      "map50_95": 0.6436
+    }
+  }
+}

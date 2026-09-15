@@ -1,0 +1,93 @@
+# Where each dataset lives. Set `root` to the folder holding your copies of the public
+# datasets (docs/DATA.md); every `path` below is relative to it. Edit only this file.
+# Verified 2026-09-10.
+root: <DATA_ROOT>
+
+sources:
+  aml_mll:
+    path: AML_Cytomorphology_MLL_Helmholtz_v1
+    role: train
+    granularity: cell          # verified visually 2026-09-10
+    note: 189 patients, MIL training + APL development split
+  aml_lmu:
+    path: AML_Cytomorphology_LMU
+    role: train
+    granularity: cell          # verified visually 2026-09-10
+    note: 18365 cells, 15 classes, cell-head training
+  all_idb2:
+    path: ALL_IDB2
+    role: train
+    granularity: cell          # verified visually 2026-09-10
+    note: 130 cancer / 130 non-cancer crops, no patient ids
+  all_idb_fields:
+    path: ALL_IDB_Dataset
+    role: train
+    enabled: false
+    granularity: field
+    note: >
+      DISABLED in v1. L1/L2 are ALL-IDB1 full fields (2592x1944 / 1712x1368) whose 493
+      boxes carry the single label "Candidate_Cell" - WBC localisation, not cell type.
+      See datasets/adapters.py and DATASETS.md. Enable only after resolving the box
+      semantics against the ALL-IDB documentation.
+  taleqani:
+    path: "ALL dataset_kaggle_Taleqani_hospital"
+    role: train
+    enabled: false
+    granularity: field         # verified visually 2026-09-10 - NOT single cells
+    note: >
+      DISABLED. The 224x224 Original images are downscaled microscopy FIELDS containing
+      several leukocytes and many erythrocytes, with a burned-in scale bar - not cell
+      crops. The dimension misled the first inventory. Segmented/ is not a mask of the
+      labelled cell either: it is a colour-threshold segmentation of every nucleus in the
+      field, and it fails on many images. The diagnosis label is therefore a FIELD label:
+      in an ALL field not every leukocyte is a blast, so calling each detected cell a
+      lymphoblast would inject exactly the label noise refused for ALL_IDB_Dataset.
+  pbc:
+    path: PBC_Acevedo
+    role: train
+    granularity: cell          # verified visually 2026-09-10
+    note: >
+      17093 unique cells, CellaVision DM96 - a different scanner, and the source of the
+      band / promyelocyte / myelocyte / metamyelocyte labels the CML rule needs.
+      wbc_resized/ and PBC_dataset_split/ are duplicates and are never enumerated.
+  leukemiaattr:
+    path: aster-block2/_work/leukemiaattr_clean
+    role: train
+    granularity: cell          # crops cut from fields by extract_leukemiaattr.py
+    note: >
+      Cleaned crop set: 28528 crops / 12900 unique cells / 47 patients, sharpness >= 4.
+      Built by datasets/extract_leukemiaattr.py then datasets/clean_crops.py from the
+      640x640 fields at <DATA_ROOT>/LeukemiaAttr.
+      Its own patient-disjoint train/test split is carried through, not redrawn.
+      APML and CLL have one patient per split: these cells TRAIN the APL flag and the
+      reactive-lymphoid exclusion, they never test them.
+  millie:
+    path: AML_APL
+    role: train
+    granularity: cell          # verified visually 2026-09-10, 360x363 centred single cells
+    note: >
+      MILLIE / Manescu 2023. 8297 labelled cells across 106 patients (APL 34 / AML 72),
+      Signed_slides/<class>/ per patient. Brings Smudge_cells 1555 over 56 patients - the
+      central criterion of the chronic-lymphoid rule, of which AML-LMU has 15 cells.
+      The 17427 Unsigned_slides carry no label and are not enumerated.
+      Split = the dataset's own Discovery (82) / Validation (24) cohorts.
+  caitomorph:
+    path: caitomorph_test_set
+    role: test
+    granularity: cell          # verified visually 2026-09-10
+    note: 409 patients - HELD-OUT TEST ONLY, never train or fit on it
+  x40_proto:
+    path: aster-block2/_work/x40_sessions
+    role: stress
+    granularity: cell          # produced by block 1 from fields
+    note: produced by notebook section 2 from the x40 fields; unlabeled
+
+# Raw x40 fields used to regenerate prototype crops with block 1
+x40_fields:
+  dataset: aster_capture/aster_x40_dataset/images
+  prototype_kept: aster_capture/aster_x40_prototype/triage/01_garder
+  detector_weights: <REPO>/models/yolo/wbc_detector.pt
+  imgsz: 960
+  confidence: 0.18
+  iou: 0.50
+  padding: 0.10

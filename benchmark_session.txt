@@ -1,0 +1,14 @@
+# Technical benchmark session for latency / energy runs.
+# Nine ALL-IDB L2 fields (1712x1368), about 95 detected WBCs at the DEPLOYED
+# operating point (YOLO11n x40 mixed-replay, imgsz 960, conf 0.18). Below tier S,
+# so the session yields no decision: it exercises every stage for latency and
+# energy only. This list is a fixed technical fixture, not a clinical cohort.
+external_data/ALL_IDB/L2/Im001_1.jpg
+external_data/ALL_IDB/L2/Im003_1.jpg
+external_data/ALL_IDB/L2/Im003_2.jpg
+external_data/ALL_IDB/L2/Im004_1.jpg
+external_data/ALL_IDB/L2/Im003_4.jpg
+external_data/ALL_IDB/L2/Im003_6.jpg
+external_data/ALL_IDB/L2/Im003_9.jpg
+external_data/ALL_IDB/L2/Im009_1.jpg
+external_data/ALL_IDB/L2/Im012_1.jpg

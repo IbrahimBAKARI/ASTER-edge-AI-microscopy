@@ -1,0 +1,318 @@
+version: '2.0'
+date: '2026-09-10'
+status: frozen
+frozen_on: '2026-09-10'
+hashes: results/PREREGISTRATION.sha256
+cell_classes:
+- myeloblast
+- lymphoblast
+- promyelocyte
+- promyelocyte_abnormal
+- myelocyte
+- metamyelocyte
+- band_neutrophil
+- segmented_neutrophil
+- basophil
+- eosinophil
+- monocyte
+- lymphocyte
+- lymphocyte_atypical
+- smudge_cell
+- erythroblast
+- other_artifact
+quantities:
+  blast_frac:
+  - myeloblast
+  - lymphoblast
+  - promyelocyte_abnormal
+  ig_frac:
+  - promyelocyte
+  - myelocyte
+  - metamyelocyte
+  baso_frac:
+  - basophil
+  lymph_frac:
+  - lymphocyte
+  smudge_frac:
+  - smudge_cell
+  atypical_frac:
+  - lymphocyte_atypical
+  mono_frac:
+  - monocyte
+  abn_promy_frac:
+  - promyelocyte_abnormal
+  myeloblast_frac:
+  - myeloblast
+  myelocyte_frac:
+  - myelocyte
+  metamyelocyte_frac:
+  - metamyelocyte
+inference:
+  posterior: jeffreys
+  gamma:
+    value: 0.9
+    tag: OPS
+    sensitivity:
+    - 0.8
+    - 0.95
+tiers:
+  none:
+    max_classified_cells: 100
+    tag: STD
+    basis: below any recognised counting standard
+    emits:
+    - insufficient_evidence
+  screening:
+    min_classified_cells:
+      value: 100
+      tag: STD
+      basis: routine manual differential
+    emits:
+    - non_leukemic
+    - suspicious_for_neoplasm
+    - bag_differential
+    source: mil_head_only
+  pattern:
+    min_classified_cells:
+      value: 200
+      tag: STD
+      basis: diagnostic manual PB differential = 200 nucleated leukocytes (EHA/ELN);
+        the WHO 20% blast criterion is applied to that count
+    emits: all_pattern_labels
+  reference:
+    min_classified_cells:
+      value: 400
+      tag: STD
+      basis: CLSI H20-A2 reference method, 400 cells (200 x 2 slides, 2 observers)
+    emits: reference_count_annotation
+    caveat: only the count is equivalent; the two-slide/two-observer replication is
+      not reproduced
+reference_interval:
+  percentile:
+    value: 99
+    tag: OPS
+    sensitivity:
+    - 97.5
+    - 99.5
+  population:
+  - aml_mll_controls_dev_fit
+  - aml_mll_controls_dev_cal
+  report_alongside:
+  - clinical_floor
+  - empirical_percentile
+  - n_reference_patients
+  - adopted
+  policy: threshold = max(clinical_floor, percentile_of_reference)
+rules:
+- id: R0_gates
+  gates:
+    min_classified_cells:
+      value: 100
+      tag: STD
+      status: insufficient_evidence
+      basis: below the routine manual differential
+    ood_mahalanobis:
+      value: FIT
+      tag: FIT
+      status: out_of_domain
+      fit_on: in_domain_dev_bags
+      criterion: 99% in-domain pass rate
+    min_classified_frac:
+      value: FIT
+      tag: FIT
+      status: indeterminate
+      fit_on:
+      - dev_sessions
+      - x40_sessions
+      criterion: 1st percentile of the dev distribution
+    below_pattern_tier:
+      status: screening_statement_only
+- id: R1_acute_blastic
+  requires_tier: pattern
+  criteria:
+  - quantity: blast_frac
+    op: '>='
+    value: 0.2
+    tag: WHO
+  subrules:
+  - id: R1a_apl
+    criteria:
+    - quantity: abn_promy_frac
+      op: '>='
+      value: FIT
+      tag: FIT
+      fit_on: 24 PML_RARA vs 105 other AML (dev)
+      criterion: specificity >= 0.95 among AML
+    - expr: abn_promy_frac > myeloblast_frac
+      tag: OPS
+    label: acute_blastic__myeloid_oriented
+    flags:
+    - APL_suspicion
+  - id: R1b_lineage
+    bands:
+    - quantity: lineage_post
+      op: '>='
+      value: FIT
+      tag: FIT
+      fit_on: cell-level pseudo-bags (ALL crops vs LMU myeloblasts)
+      criterion: equal error rate
+      label: acute_blastic__lymphoid_oriented
+    - quantity: lineage_post
+      op: <=
+      value: FIT
+      tag: FIT
+      label: acute_blastic__myeloid_oriented
+    - default: true
+      label: acute_blastic__lineage_indeterminate
+- id: R2_chronic_myeloid
+  requires_tier: pattern
+  requires_rejected:
+  - R1_acute_blastic
+  criteria:
+  - quantity: ig_frac
+    op: '>='
+    value: REF
+    tag: REF
+    clinical_floor: 0.1
+    note: CML left shift; floor deliberately permissive, real CML often 20-30%
+  - quantity: baso_frac
+    op: '>='
+    value: REF
+    tag: REF
+    clinical_floor: 0.02
+    note: basophilia is a near-constant feature of CML [CONV floor]
+  exclusions:
+  - all_of:
+    - quantity: mono_frac
+      op: '>='
+      value: 0.1
+      tag: WHO
+    - quantity: ig_frac
+      op: <
+      value: 0.1
+      tag: OPS
+    note: CMML exclusion
+  label: chronic_myeloid_pattern
+  recorded_not_used:
+  - expr: myelocyte_frac > metamyelocyte_frac
+    note: myelocyte bulge; post-hoc only
+- id: R3_chronic_lymphoid
+  requires_tier: pattern
+  requires_rejected:
+  - R1_acute_blastic
+  criteria:
+  - quantity: lymph_frac
+    op: '>='
+    value: REF
+    tag: REF
+    clinical_floor: 0.5
+    note: adult reference 20-45% [CONV]; real CLL often 70-95%
+  - quantity: smudge_frac
+    op: '>='
+    value: REF
+    tag: REF
+    clinical_floor: 0.02
+    note: Gumprecht cells; weakest class, 15 training cells
+  exclusions:
+  - all_of:
+    - quantity: atypical_frac
+      op: '>='
+      value: REF
+      tag: REF
+    - quantity: smudge_frac
+      op: <
+      value: REF
+      tag: REF
+    note: reactive lymphocytosis exclusion — the 42 Reactive patients are the test
+  label: chronic_lymphoid_pattern
+- id: R4_non_leukemic
+  requires_tier: pattern
+  criteria:
+  - quantity: blast_frac
+    op: <
+    value: 0.05
+    tag: CONV
+  - quantity: ig_frac
+    op: <
+    value: 0.02
+    tag: CONV
+  - quantity: lymph_frac
+    op: <=
+    value: 0.5
+    tag: CONV
+  - quantity: P_abn
+    op: <
+    value: FIT
+    tag: FIT
+    fit_on: dev_calibration_split
+    criterion: operating point at specificity >= 0.95
+  label: non_leukemic
+- id: R5_fallback
+  default: true
+  label: indeterminate
+flags:
+  monocytic_predominance:
+    criteria:
+    - quantity: mono_frac
+      op: '>='
+      value: 0.1
+      tag: WHO
+  reactive_lymphoid_observation:
+    criteria:
+    - quantity: atypical_frac
+      op: '>='
+      value: REF
+      tag: REF
+  nucleated_rbc_present:
+    criteria:
+    - quantity: erythroblast_count
+      op: '>='
+      value: 1
+      tag: CONV
+p_abn_scope:
+- R1_acute_blastic
+- R4_non_leukemic
+sensitivity_analysis:
+  applies_to_tag: OPS
+  reported: always
+  note: a grid that only works at its frozen values is a fitted grid, and is reported
+    as such
+amendments:
+- date: '2026-09-11'
+  reason: Phase 1 resolution of the [REF] and [FIT] placeholders
+  fitted_on:
+    FIT: aml_mll dev_fit patients
+    REF: 24 aml_mll dev_cal control patients
+  never_used: caitomorph
+  values:
+    p_abn: 0.996174
+    apl_abn_promy: 0.01467
+    ig_cml: 0.1
+    baso_cml: 0.02578
+    lymph_cll: 0.5
+    smudge_cll: 0.137332
+    atypical_reactive: 0.1
+    lineage_lo: 0.31134
+    lineage_hi: 0.31134
+    ood_mahalanobis: 576.111775
+    min_classified_frac: 0.991506
+    mil_temperature: 0.3
+- date: '2026-09-11'
+  reason: Phase 1 resolution of the [REF] and [FIT] placeholders
+  fitted_on:
+    FIT: aml_mll dev_fit patients
+    REF: 24 aml_mll dev_cal control patients
+  never_used: caitomorph
+  values:
+    p_abn: 0.933372
+    apl_abn_promy: 0.01467
+    ig_cml: 0.1
+    baso_cml: 0.02578
+    lymph_cll: 0.5
+    smudge_cll: 0.137332
+    atypical_reactive: 0.1
+    lineage_lo: 0.31134
+    lineage_hi: 0.31134
+    ood_mahalanobis: 576.111775
+    min_classified_frac: 0.991506
+    mil_temperature: 0.25

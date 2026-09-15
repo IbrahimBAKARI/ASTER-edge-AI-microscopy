@@ -1,0 +1,27 @@
+{
+  "_note": "Transcribed from the console: the live benchmarks/yolo_isolated/yolo_isolated.json was overwritten by a stray `--runs 1 --warmup 0` call afterwards. Re-run `benchmark_yolo_isolated.py --runs 100 --warmup 5` to regenerate the canonical file.",
+  "n_images": 9,
+  "runs": 100,
+  "warmup_excluded": 5,
+  "device": "cuda",
+  "operating_point": {"conf": 0.18, "iou_nms": 0.5, "imgsz": 960},
+  "clock_state": {"declaration": "jetson_clocks NOT engaged; DVFS active (declare in manuscript methods)", "nvpmodel": "MAXN_SUPER"},
+  "weights": {
+    "pytorch": "models/yolo/wbc_detector.pt",
+    "pytorch_sha256": "5253be6be234b956fa0da9af575949b155b9e47917fb79301d5cb62f8a2d39a1",
+    "tensorrt_fp16": "models/yolo/wbc_detector.engine",
+    "tensorrt_fp16_sha256": "ae8aeb24c415c3ebcbaa9da6a07d0e7612395e90123ae8ab2c11ea0dacf9bc2a"
+  },
+  "latency_ms_per_field": {
+    "pytorch":       {"mean": 64.288, "std": 0.165, "median": 64.251, "p95": 64.684, "min": 64.073, "max": 64.844, "n": 100},
+    "tensorrt_fp16": {"mean": 48.733, "std": 0.159, "median": 48.668, "p95": 49.064, "min": 48.541, "max": 49.373, "n": 100}
+  },
+  "speedup_median": 1.32,
+  "speedup_mean": 1.319,
+  "detection_parity_at_operating_point": {
+    "pytorch_boxes": 95,
+    "fp16_boxes": 94,
+    "matched_boxes": 93,
+    "mean_iou_matched": 0.8812
+  }
+}

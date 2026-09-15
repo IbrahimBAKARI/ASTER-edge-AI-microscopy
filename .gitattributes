@@ -1,0 +1,10 @@
+# Every file is stored and checked out byte for byte (no line-ending conversion):
+# the model files, the pre-registration and several manifests are covered by SHA-256 digests.
+* -text
+
+# Binary model files (largest: 46 MB, under GitHub's 100 MB limit) are ordinary Git objects,
+# so that the Zenodo archive of each release contains them.
+*.pt   binary
+*.pth  binary
+*.onnx binary
+*.npz  binary

@@ -1,0 +1,90 @@
+{
+  "session_id": "prototype_batch_B",
+  "status": "out_of_domain",
+  "label": "out_of_domain",
+  "tier": "none",
+  "final_calibrated_probability": 0.9451757309684904,
+  "flags": [],
+  "reasons": [
+    "OOD score 853.83 above the in-domain threshold 576.11"
+  ],
+  "population_profile": {
+    "myeloblast": 0.37583892617449666,
+    "lymphoblast": 0.06711409395973154,
+    "promyelocyte": 0.006711409395973154,
+    "promyelocyte_abnormal": 0.0,
+    "myelocyte": 0.006711409395973154,
+    "metamyelocyte": 0.0,
+    "band_neutrophil": 0.0,
+    "segmented_neutrophil": 0.11409395973154363,
+    "basophil": 0.0,
+    "eosinophil": 0.06040268456375839,
+    "monocyte": 0.35570469798657717,
+    "lymphocyte": 0.0,
+    "lymphocyte_atypical": 0.013422818791946308,
+    "smudge_cell": 0.0,
+    "erythroblast": 0.0,
+    "other_artifact": 0.0
+  },
+  "quantities": {
+    "blast_frac": 0.4429530201342282,
+    "ig_frac": 0.013422818791946308,
+    "baso_frac": 0.0,
+    "lymph_frac": 0.0,
+    "smudge_frac": 0.0,
+    "atypical_frac": 0.013422818791946308,
+    "mono_frac": 0.35570469798657717,
+    "abn_promy_frac": 0.0,
+    "myeloblast_frac": 0.37583892617449666,
+    "myelocyte_frac": 0.006711409395973154,
+    "metamyelocyte_frac": 0.0
+  },
+  "verdicts": {},
+  "uncertainty": {
+    "p_abn_raw": 0.6708008646965027,
+    "p_abn": 0.9451757309684904,
+    "ood_score": 853.8289489490686,
+    "ood_threshold": 576.1117745962939
+  },
+  "evidence": {
+    "top_attended": [
+      39,
+      29,
+      91,
+      61,
+      133,
+      53,
+      76,
+      49,
+      31,
+      121
+    ],
+    "attention_weights": [
+      0.02222534827888012,
+      0.018179528415203094,
+      0.017780033871531487,
+      0.01677047461271286,
+      0.016106195747852325,
+      0.01592436619102955,
+      0.01546421553939581,
+      0.015446868725121021,
+      0.014368067495524883,
+      0.014208213426172733
+    ]
+  },
+  "number_of_fields": 101,
+  "number_of_detected_wbc": 149,
+  "number_of_classified_leukocytes": 149,
+  "device": "cpu",
+  "inference_backend": "pytorch",
+  "grid_sha256": "bd88c4b83d47d87188f2ef6e540a6d971f8c95c0e0e7665ebe2f274b3809efd2",
+  "warnings": [],
+  "timing_ms": {
+    "image_loading": 1.756,
+    "yolo": 25879.068,
+    "crop_preparation": 269.568,
+    "mil": 5060.436,
+    "total": 31211.795
+  },
+  "final_label": "no_decision"
+}

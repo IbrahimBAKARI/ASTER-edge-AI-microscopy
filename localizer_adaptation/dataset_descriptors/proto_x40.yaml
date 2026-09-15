@@ -1,0 +1,8 @@
+# YOLO data.yaml for the x40 held-out evaluation.
+# Point path: at your local copy of the 478-field x40 dataset (see docs/DATA.md).
+path: /path/to/aster_x40_dataset
+train: images/train
+val: images/val
+test: images/test
+names:
+  0: wbc

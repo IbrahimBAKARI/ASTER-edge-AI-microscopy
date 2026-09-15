@@ -1,0 +1,37 @@
+{
+  "ig_cml": {
+    "clinical_floor": 0.1,
+    "empirical_percentile": 0.0024203046613743813,
+    "n_reference_patients": 24,
+    "adopted": 0.1,
+    "adopted_term": "floor"
+  },
+  "baso_cml": {
+    "clinical_floor": 0.02,
+    "empirical_percentile": 0.02578043260479334,
+    "n_reference_patients": 24,
+    "adopted": 0.02578043260479334,
+    "adopted_term": "empirical"
+  },
+  "lymph_cll": {
+    "clinical_floor": 0.5,
+    "empirical_percentile": 0.33356476018142134,
+    "n_reference_patients": 24,
+    "adopted": 0.5,
+    "adopted_term": "floor"
+  },
+  "smudge_cll": {
+    "clinical_floor": 0.02,
+    "empirical_percentile": 0.13733157949514624,
+    "n_reference_patients": 24,
+    "adopted": 0.13733157949514624,
+    "adopted_term": "empirical"
+  },
+  "atypical_reactive": {
+    "clinical_floor": 0.1,
+    "empirical_percentile": 0.0180731328268667,
+    "n_reference_patients": 24,
+    "adopted": 0.1,
+    "adopted_term": "floor"
+  }
+}

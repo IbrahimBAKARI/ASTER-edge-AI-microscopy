@@ -1,0 +1,36 @@
+{
+  "idle": {
+    "duration_from_samples_s": 58.38197588920593,
+    "power_rail": "VDD_IN",
+    "power_mean_w": 5.240254237288137,
+    "power_std_w": 0.03132619990840478,
+    "power_median_w": 5.237,
+    "power_max_w": 5.467,
+    "total_energy_j": 305.8242859463692,
+    "completed_units": 0,
+    "unit_name": "second",
+    "gross_energy_per_unit_j": null,
+    "gpu_temperature_max_c": 52.968,
+    "cpu_temperature_max_c": 52.812,
+    "ram_max_mb": 2609,
+    "sample_count": 59
+  },
+  "full_analysis": {
+    "duration_from_samples_s": 313.059531211853,
+    "power_rail": "VDD_IN",
+    "power_mean_w": 6.901525641025641,
+    "power_std_w": 0.5885757177680808,
+    "power_median_w": 6.417,
+    "power_max_w": 7.897,
+    "total_energy_j": 2160.6799761939046,
+    "completed_units": 8,
+    "unit_name": "analysis",
+    "gross_energy_per_unit_j": 270.0849970242381,
+    "gpu_temperature_max_c": 54.125,
+    "cpu_temperature_max_c": 54.0,
+    "ram_max_mb": 6382,
+    "sample_count": 312,
+    "analysis_wall_mean_s": 39.33052819512477
+  },
+  "incremental_energy_per_analysis_j": 65.3386817844524
+}

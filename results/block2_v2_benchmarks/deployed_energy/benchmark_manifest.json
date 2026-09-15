@@ -1,0 +1,132 @@
+{
+  "session_description": "technical benchmark session assembled from previously evaluated microscopy fields",
+  "created_at": "2026-09-12T13:31:39.965185+01:00",
+  "images": [
+    {
+      "path": "<ALL_IDB>/L2/Im001_1.jpg",
+      "sha256": "ac7659cc2ded43c3236c037d0565d96d220e025d355c4fec743c99cc22e2621f"
+    },
+    {
+      "path": "<ALL_IDB>/L2/Im003_1.jpg",
+      "sha256": "7bb2865d2508b9f08bfa0549425b2b46c40445ece8defbbaef62dbdbc60e7e84"
+    },
+    {
+      "path": "<ALL_IDB>/L2/Im003_2.jpg",
+      "sha256": "319ca5aee910d78a2ee27c9a7ca071f9952389515266b7ef24259e41d63e6e8c"
+    },
+    {
+      "path": "<ALL_IDB>/L2/Im004_1.jpg",
+      "sha256": "a39032e7635c8245224ff678f5b5d3c98032947a8cd687404623192c900e61bf"
+    },
+    {
+      "path": "<ALL_IDB>/L2/Im003_4.jpg",
+      "sha256": "3827880dfc24baea5fae69adc50fde533244ed5c5e9b9c02d1d182f1bd5c0242"
+    },
+    {
+      "path": "<ALL_IDB>/L2/Im003_6.jpg",
+      "sha256": "2ca82d6a93a26113493edc9e6ee8b8a2c060d03a8cfcdf5bb1f1ac0eb04438e6"
+    },
+    {
+      "path": "<ALL_IDB>/L2/Im003_9.jpg",
+      "sha256": "de044588e1c3358ac2afbdfbb1cb5870d81e6685998324512347c9256579714d"
+    },
+    {
+      "path": "<ALL_IDB>/L2/Im009_1.jpg",
+      "sha256": "140eddf3bb9a477c69658a1097efbded18712aecdbaf186829fb35c1afcd7382"
+    },
+    {
+      "path": "<ALL_IDB>/L2/Im012_1.jpg",
+      "sha256": "611f85138df713395942a84de34a9ccfb5a0a90dd1168ed1f5df5314daaac3c5"
+    }
+  ],
+  "number_of_fields": 9,
+  "number_of_detected_wbc": 95,
+  "models": [
+    {
+      "path": "<REPO>/models/yolo/wbc_detector.pt",
+      "sha256": "5253be6be234b956fa0da9af575949b155b9e47917fb79301d5cb62f8a2d39a1"
+    },
+    {
+      "path": "<REPO>/models/mil_v2/encoder.onnx",
+      "sha256": "0327c4ddf7b64bb1c473c69b2d085091379dceea69541de755c6fe5c41049593"
+    },
+    {
+      "path": "<REPO>/models/mil_v2/encoder_fp16.engine",
+      "sha256": "0ba325685c4f991a9095601949506c3019ecfec9fbbe63d6b96fb847c8b63c20"
+    },
+    {
+      "path": "<REPO>/models/mil_v2/heads.pt",
+      "sha256": "eab63a34ca1bb34126b8dc3ede699cab0c26f0c015b1dd57c60e6770755e092c"
+    }
+  ],
+  "block2_bundle": {
+    "grid": {
+      "path": "<REPO>/models/mil_v2/decision_grid.yaml",
+      "sha256": "bd88c4b83d47d87188f2ef6e540a6d971f8c95c0e0e7665ebe2f274b3809efd2"
+    },
+    "thresholds": {
+      "path": "<REPO>/models/mil_v2/thresholds.json",
+      "sha256": "0408f06ed33bdc90d20d765e51da4b2b29572102f03566133471c04824334fda"
+    },
+    "ood_stats": {
+      "path": "<REPO>/models/mil_v2/ood_stats.npz",
+      "sha256": "4ba9d5312a2da5cc17b1e2a226a6fb827b61b0122b13ec1744aed9a25b63e6a1"
+    },
+    "quantifier": {
+      "path": "<REPO>/models/mil_v2/quantifier.json",
+      "sha256": "6b65a66dc6f1a641561677a5c86940a53b8f6da8bb735cb3f7af478befac2895"
+    }
+  },
+  "yolo_parameters": {
+    "confidence": 0.18,
+    "iou": 0.5,
+    "image_size": 960,
+    "padding": 0.1,
+    "class_id": 0
+  },
+  "block2_parameters": {
+    "bag_size": 200,
+    "seed": 42,
+    "gamma": 0.9,
+    "min_classified_cells_screening": 100,
+    "min_classified_cells_pattern": 200,
+    "min_classified_cells_reference": 400,
+    "thresholds_and_grid": "frozen decision grid + resolved thresholds, hashed above"
+  },
+  "backend": "tensorrt_fp16",
+  "environment": {
+    "python": "3.10.12",
+    "platform": "Linux-5.15.148-tegra-aarch64-with-glibc2.35",
+    "jetpack": "dpkg-query: no packages found matching nvidia-jetpack",
+    "cuda": null,
+    "tensorrt": "dpkg-query: no packages found matching libnvinfer8",
+    "pytorch": "2.8.0",
+    "power_mode": "NV Power Mode: MAXN_SUPER\n2",
+    "clock_state": {
+      "nvpmodel": "NV Power Mode: MAXN_SUPER\n2",
+      "jetson_clocks_show": "SOC family:tegra234  Machine:NVIDIA Jetson Orin Nano Engineering Reference Developer Kit Super\nError: Run this script(/usr/bin/jetson_clocks) as a root user",
+      "cpu_governors": "schedutil",
+      "clocks_pinned": null,
+      "declaration": "clock state undetermined (jetson_clocks --show needs root; no saved dump)"
+    }
+  },
+  "energy_three_modes_protocol": {
+    "mode_order": [
+      "idle",
+      "acquisition",
+      "full_analysis"
+    ],
+    "requested_duration_per_mode_s": 300.0,
+    "tegrastats_interval_ms": 1000,
+    "stabilization_between_modes_s": 30.0,
+    "initial_stabilization_s": 30.0,
+    "power_rail": "VDD_IN",
+    "camera_index": 0,
+    "camera_resolution": [
+      1280,
+      720
+    ],
+    "camera_requested_fps": 30.0,
+    "full_pipeline_warmup_runs": 5
+  }
+}

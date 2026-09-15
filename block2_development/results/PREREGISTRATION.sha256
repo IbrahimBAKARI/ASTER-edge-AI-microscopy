@@ -1,0 +1,9 @@
+# ASTER block 2 — pre-registration digests (CURRENT)
+# Freeze: 2026-09-10.  Latest amendment: 9, 2026-09-11, post hoc (see PREREGISTRATION.amendments.md)
+# gamma = 0.90 ; reference percentile = 99th  — unchanged since the freeze
+# Verify:  shasum -a 256 -c results/PREREGISTRATION.sha256   (run from aster-block2/)
+#
+80cc1fccbb57f27d4fd13fdb1b380a92ac4286192fa2763d6b83ea25c2be54d7  PREREGISTRATION.md
+e55ee9fe24c44085e9c5b86122d8c8a693e6258c87c212f506af91394ad933b1  src/aster_block2/decision_grid.yaml
+4fbda0bd8e9ecc5bd511d059b1a5976dcb37b1c25b05bc3cde35aebd213c7aea  src/aster_block2/proportion_test.py
+2f646dd9a93d2fcc298d1fd34240f0c2a6dead7093f95690e12f526084a58ee0  src/aster_block2/session_calibration.py
